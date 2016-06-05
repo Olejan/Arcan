@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arcan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="450" Width="525">
+    <Window.DataContext>
+        <local:Arcan_VM/>
+    </Window.DataContext>
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="184" Margin="167,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="183"/>
         <Rectangle HorizontalAlignment="Left" Height="184" Margin="167,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="183" RenderTransformOrigin="0.5,0.5">
@@ -82,6 +85,64 @@
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="345,245,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="167,245,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="345,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="117,136,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="245,10,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="385,136,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=C, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="245,293,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=D, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="157,45,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=E, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="340,48,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=F, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="355,250,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=G, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy6" HorizontalAlignment="Left" Margin="157,250,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=H, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy7" HorizontalAlignment="Left" Margin="255,139,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=I, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy8" HorizontalAlignment="Left" Margin="245,224,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=J, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy9" HorizontalAlignment="Left" Margin="291,183,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=K, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy10" HorizontalAlignment="Left" Margin="335,139,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=L, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy11" HorizontalAlignment="Left" Margin="286,222,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=M, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy12" HorizontalAlignment="Left" Margin="331,178,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=N, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy11" HorizontalAlignment="Left" Margin="215,255,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=O, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="16,332,0,0" TextWrapping="Wrap"
+                   Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="16,361,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" Margin="83,332,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=Sky, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left" Margin="83,361,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=Land, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy3" HorizontalAlignment="Left" Margin="328,335,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy4" HorizontalAlignment="Left" Margin="328,364,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy5" HorizontalAlignment="Left" Margin="395,335,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=Man, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy6" HorizontalAlignment="Left" Margin="395,364,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=Woman, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy7" HorizontalAlignment="Left" Margin="202,393,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy8" HorizontalAlignment="Left" Margin="269,393,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=Common, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy9" HorizontalAlignment="Left" Margin="133,348,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=SkyLandCommon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1_Copy10" HorizontalAlignment="Left" Margin="445,348,0,0" TextWrapping="Wrap"
+                   Text="{Binding Path=ManWomanCommon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="}" HorizontalAlignment="Left" Margin="104,300,0,0" VerticalAlignment="Top" FontSize="64"/>
+        <Label x:Name="label_Copy" Content="}" HorizontalAlignment="Left" Margin="416,303,0,0" VerticalAlignment="Top" FontSize="64"/>
+        <Label x:Name="label_Copy1" Content="{}{" HorizontalAlignment="Left" Margin="226,210,0,0" VerticalAlignment="Top" FontSize="64"/>
+        <TextBlock x:Name="textBlock_Copy13" HorizontalAlignment="Left" Margin="439,28,0,0" TextWrapping="Wrap"
+        	Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="16,24,0,0" VerticalAlignment="Top" Width="130"
+                    SelectedDate="{Binding Path=Birthday, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
 
     </Grid>
 </Window>
