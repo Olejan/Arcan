@@ -125,14 +125,44 @@ namespace Arcan
             B = Birthday.Month;
             C = GetArcNum(Birthday.Year); // !!!!!!!!!!
             D = GetArcNum(A + B + C);
+            I = GetArcNum(A + B + C + D);
+            E = GetArcNum(A + B);
+            F = GetArcNum(B + C);
+            G = GetArcNum(D + C);
+            H = GetArcNum(A + D);
+            J = GetArcNum(I + D);
+            O = GetArcNum(J + D);
+            L = GetArcNum(I + C);
+            K = GetArcNum(J + L);
+            M = GetArcNum(J + K);
+            N = GetArcNum(K + L);
+            Sky = GetArcNum(B + D);
+            Land = GetArcNum(A + C);
+            SkyLandCommon = GetArcNum(Sky + Land);
+            Woman = GetArcNum(H + F);
+            Man = GetArcNum(E + G);
+            ManWomanCommon = GetArcNum(Man + Woman);
+            Common = GetArcNum(SkyLandCommon + ManWomanCommon);
         }
         private int GetArcNum(int num)
         {
-            if (num > 99) return 0;
-            else if (num <= 22) return num;
-            int s1 = num / 10;
-            int s2 = num % 10;
-            return s1 + s2;
+            if (num < 0) num *= -1;// на всякий случай
+            if (num <= 22) return num;
+            List<int> lis = new List<int>();
+            do
+            {
+                int tail = num % 10;
+                num /= 10;
+                lis.Add(tail);
+            } while (num != 0);
+            int sum = 0;
+            foreach(int s in lis)
+            {
+                sum += s;
+            }
+            if (sum > 22)
+                sum = GetArcNum(sum);
+            return sum;
         }
     }
     /*public class RelayCommand : ICommand
