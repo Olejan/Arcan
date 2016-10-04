@@ -30,28 +30,34 @@ namespace Arcan
     public class Arcan_VM:INotifyPropertyChanged
     {
         #region Data
-        private int _A;
-        private int _B;
-        private int _C;
-        private int _D;
-        private int _E;
-        private int _F;
-        private int _G;
-        private int _H;
-        private int _I;
-        private int _J;
-        private int _K;
-        private int _L;
-        private int _M;
-        private int _N;
-        private int _O;
+        private int _Personal;
+        private int _GuardianAngel;
+        private int _GiftAfter40;
+        private int _MainFromPast;
+        private int _Father1stPoint;
+        private int _Mother2ndPoint;
+        private int _Father2ndPoint;
+        private int _Mother1stPoint;
+        private int _ComfortPoint;
+        private int _PastLife1stPoint;
+        private int _Money1stPoint;
+        private int _MoneyEnter;
+        private int _Love2ndPoint;
+        private int _Money2ndPoint;
+        private int _PastLife2ndPoint;
         private int _Sky;
         private int _Land;
-        private int _SkyLandCommon;
+        private int _FirstMission;
         private int _Man;
         private int _Woman;
-        private int _ManWomanCommon;
-        private int _Common;
+        private int _SecondMission;
+        private int _CommonMission;
+        private int _Adjna;
+        private int _Vishudha;
+        private int _Anahata;
+        private int _HelthAdjna;
+        private int _HelthVishudha;
+        private int _HelthAnahata;
         private string _Name;
         private DateTime _Birthday;
 
@@ -59,41 +65,48 @@ namespace Arcan
         #endregion Data
         public Arcan_VM()
         {
-            A = 1;B = 2;C = 3;D = 4;E = 5;F = 6;G = 7;H = 8;I = 9;J = 10;K = 11;L = 12;M = 13;N = 14;O = 15;
-            Sky = 16;Land = 17;SkyLandCommon = 18; Man = 19;Woman = 20;ManWomanCommon = 21;Common = 22;
+            Personal = 1;GuardianAngel = 2;GiftAfter40 = 3;MainFromPast = 4;Father1stPoint = 5;Mother2ndPoint = 6;Father2ndPoint = 7;Mother1stPoint = 8;ComfortPoint = 9;PastLife1stPoint = 10;Money1stPoint = 11;MoneyEnter = 12;Love2ndPoint = 13;Money2ndPoint = 14;PastLife2ndPoint = 15;
+            _Adjna = 1; _Vishudha = 1; _Anahata = 1;
+            Sky = 16;Land = 17;FirstMission = 18; Man = 19;Woman = 20;SecondMission = 21;CommonMission = 22;
             Name = "Name";Birthday = DateTime.Now;
             //DateChanged = new RelayCommand(arg => DateChanged_Executed());
         }
-        public int A
+        public int Personal
         {
-            get { return _A; }
+            get { return _Personal; }
             set
             {
-                _A = value;
-                OnPropertyChanged("A");
+                _Personal = value;
+                OnPropertyChanged("Personal");
             }
         }
-        public int B { get { return _B; } set { _B = value; OnPropertyChanged("B"); } }
-        public int C { get { return _C; } set { _C = value; OnPropertyChanged("C"); } }
-        public int D { get { return _D; } set { _D = value; OnPropertyChanged("D"); } }
-        public int E { get { return _E; } set { _E = value; OnPropertyChanged("E"); } }
-        public int F { get { return _F; } set { _F = value; OnPropertyChanged("F"); } }
-        public int G { get { return _G; } set { _G = value; OnPropertyChanged("G"); } }
-        public int H { get { return _H; } set { _H = value; OnPropertyChanged("H"); } }
-        public int I { get { return _I; } set { _I = value; OnPropertyChanged("I"); } }
-        public int J { get { return _J; } set { _J = value; OnPropertyChanged("J"); } }
-        public int K { get { return _K; } set { _K = value; OnPropertyChanged("K"); } }
-        public int L { get { return _L; } set { _L = value; OnPropertyChanged("L"); } }
-        public int M { get { return _M; } set { _M = value; OnPropertyChanged("M"); } }
-        public int N { get { return _N; } set { _N = value; OnPropertyChanged("N"); } }
-        public int O { get { return _O; } set { _O = value; OnPropertyChanged("O"); } }
+        public int GuardianAngel { get { return _GuardianAngel; } set { _GuardianAngel = value; OnPropertyChanged("GuardianAngel"); } }
+        public int GiftAfter40 { get { return _GiftAfter40; } set { _GiftAfter40 = value; OnPropertyChanged("GiftAfter40"); } }
+        public int MainFromPast { get { return _MainFromPast; } set { _MainFromPast = value; OnPropertyChanged("MainFromPast"); } }
+        public int Father1stPoint { get { return _Father1stPoint; } set { _Father1stPoint = value; OnPropertyChanged("Father1stPoint"); } }
+        public int Mother2ndPoint { get { return _Mother2ndPoint; } set { _Mother2ndPoint = value; OnPropertyChanged("Mother2ndPoint"); } }
+        public int Father2ndPoint { get { return _Father2ndPoint; } set { _Father2ndPoint = value; OnPropertyChanged("Father2ndPoint"); } }
+        public int Mother1stPoint { get { return _Mother1stPoint; } set { _Mother1stPoint = value; OnPropertyChanged("Mother1stPoint"); } }
+        public int ComfortPoint { get { return _ComfortPoint; } set { _ComfortPoint = value; OnPropertyChanged("ComfortPoint"); } }
+        public int PastLife1stPoint { get { return _PastLife1stPoint; } set { _PastLife1stPoint = value; OnPropertyChanged("PastLife1stPoint"); } }
+        public int Money1stPoint { get { return _Money1stPoint; } set { _Money1stPoint = value; OnPropertyChanged("Money1stPoint"); } }
+        public int MoneyEnter { get { return _MoneyEnter; } set { _MoneyEnter = value; OnPropertyChanged("MoneyEnter"); } }
+        public int Love2ndPoint { get { return _Love2ndPoint; } set { _Love2ndPoint = value; OnPropertyChanged("Love2ndPoint"); } }
+        public int Money2ndPoint { get { return _Money2ndPoint; } set { _Money2ndPoint = value; OnPropertyChanged("Money2ndPoint"); } }
+        public int PastLife2ndPoint { get { return _PastLife2ndPoint; } set { _PastLife2ndPoint = value; OnPropertyChanged("PastLife2ndPoint"); } }
         public int Sky { get { return _Sky; } set { _Sky = value; OnPropertyChanged("Sky"); } }
         public int Land { get { return _Land; } set { _Land = value; OnPropertyChanged("Land"); } }
-        public int SkyLandCommon { get { return _SkyLandCommon; } set { _SkyLandCommon = value; OnPropertyChanged("SkyLandCommon"); } }
+        public int FirstMission { get { return _FirstMission; } set { _FirstMission = value; OnPropertyChanged("FirstMission"); } }
         public int Man { get { return _Man; } set { _Man = value; OnPropertyChanged("Man"); } }
         public int Woman { get { return _Woman; } set { _Woman = value; OnPropertyChanged("Woman"); } }
-        public int ManWomanCommon { get { return _ManWomanCommon; } set { _ManWomanCommon = value; OnPropertyChanged("ManWomanCommon"); } }
-        public int Common { get { return _Common; } set { _Common = value; OnPropertyChanged("Common"); } }
+        public int SecondMission { get { return _SecondMission; } set { _SecondMission = value; OnPropertyChanged("SecondMission"); } }
+        public int CommonMission { get { return _CommonMission; } set { _CommonMission = value; OnPropertyChanged("CommonMission"); } }
+        public int Adjna { get { return _Adjna; } set { _Adjna = value; OnPropertyChanged("Adjna"); } }
+        public int Vishudha { get { return _Vishudha; } set { _Vishudha = value; OnPropertyChanged("Vishudha"); } }
+        public int Anahata { get { return _Anahata; } set { _Anahata = value; OnPropertyChanged("Anahata"); } }
+        public int HelthAdjna { get { return _HelthAdjna; } set { _HelthAdjna = value; OnPropertyChanged("HelthAdjna"); } }
+        public int HelthVishudha { get { return _HelthVishudha; } set { _HelthVishudha = value; OnPropertyChanged("HelthVishudha"); } }
+        public int HelthAnahata { get { return _HelthAnahata; } set { _HelthAnahata = value; OnPropertyChanged("HelthAnahata"); } }
         public string Name { get { return _Name; } set { _Name = value; OnPropertyChanged("Name"); } }
         public DateTime Birthday
         {
@@ -113,36 +126,39 @@ namespace Arcan
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         private void DateChanged_Executed()
         {
             if (Birthday == null) return;
-            A = GetArcNum(Birthday.Day);
-            B = Birthday.Month;
-            C = GetArcNum(Birthday.Year); // !!!!!!!!!!
-            D = GetArcNum(A + B + C);
-            I = GetArcNum(A + B + C + D);
-            E = GetArcNum(A + B);
-            F = GetArcNum(B + C);
-            G = GetArcNum(D + C);
-            H = GetArcNum(A + D);
-            J = GetArcNum(I + D);
-            O = GetArcNum(J + D);
-            L = GetArcNum(I + C);
-            K = GetArcNum(J + L);
-            M = GetArcNum(J + K);
-            N = GetArcNum(K + L);
-            Sky = GetArcNum(B + D);
-            Land = GetArcNum(A + C);
-            SkyLandCommon = GetArcNum(Sky + Land);
-            Woman = GetArcNum(H + F);
-            Man = GetArcNum(E + G);
-            ManWomanCommon = GetArcNum(Man + Woman);
-            Common = GetArcNum(SkyLandCommon + ManWomanCommon);
+            Personal = GetArcNum(Birthday.Day);
+            GuardianAngel = Birthday.Month;
+            GiftAfter40 = GetArcNum(Birthday.Year); // !!!!!!!!!!
+            MainFromPast = GetArcNum(Personal + GuardianAngel + GiftAfter40);
+            ComfortPoint = GetArcNum(Personal + GuardianAngel + GiftAfter40 + MainFromPast);
+            Father1stPoint = GetArcNum(Personal + GuardianAngel);
+            Mother2ndPoint = GetArcNum(GuardianAngel + GiftAfter40);
+            Father2ndPoint = GetArcNum(MainFromPast + GiftAfter40);
+            Mother1stPoint = GetArcNum(Personal + MainFromPast);
+            PastLife1stPoint = GetArcNum(ComfortPoint + MainFromPast);
+            PastLife2ndPoint = GetArcNum(PastLife1stPoint + MainFromPast);
+            MoneyEnter = GetArcNum(ComfortPoint + GiftAfter40);
+            Money1stPoint = GetArcNum(PastLife1stPoint + MoneyEnter);
+            Love2ndPoint = GetArcNum(PastLife1stPoint + Money1stPoint);
+            Money2ndPoint = GetArcNum(Money1stPoint + MoneyEnter);
+            Sky = GetArcNum(GuardianAngel + MainFromPast);
+            Land = GetArcNum(Personal + GiftAfter40);
+            FirstMission = GetArcNum(Sky + Land);
+            Woman = GetArcNum(Mother1stPoint + Mother2ndPoint);
+            Man = GetArcNum(Father1stPoint + Father2ndPoint);
+            SecondMission = GetArcNum(Man + Woman);
+            CommonMission = GetArcNum(FirstMission + SecondMission);
+            Vishudha = GetArcNum(GuardianAngel + ComfortPoint);
+            Adjna = GetArcNum(GuardianAngel + Vishudha);
+            Anahata = GetArcNum(Vishudha + ComfortPoint);
+            HelthVishudha = GetArcNum(Personal + ComfortPoint);
+            HelthAdjna = GetArcNum(Personal + HelthVishudha);
+            HelthAnahata = GetArcNum(HelthVishudha + ComfortPoint);
         }
         private int GetArcNum(int num)
         {
