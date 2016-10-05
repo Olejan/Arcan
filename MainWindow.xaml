@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arcan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="525">
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="690" Width="525">
     <Window.DataContext>
         <local:Arcan_VM/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="450"/>
-            <RowDefinition Height="450"/>
+            <RowDefinition Height="430"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="184" Margin="167,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="183"/>
         <Rectangle HorizontalAlignment="Left" Height="184" Margin="167,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="183" RenderTransformOrigin="0.5,0.5">
@@ -135,9 +136,9 @@
                    Text="{Binding Path=Man, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock1_Copy6" HorizontalAlignment="Left" Margin="395,364,0,0" TextWrapping="Wrap"
                    Text="{Binding Path=Woman, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock1_Copy7" HorizontalAlignment="Left" Margin="202,393,0,0" TextWrapping="Wrap"
+        <TextBlock x:Name="textBlock1_Copy7" HorizontalAlignment="Left" Margin="202,394,0,0" TextWrapping="Wrap"
                    Text="Общее" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock1_Copy8" HorizontalAlignment="Left" Margin="269,393,0,0" TextWrapping="Wrap"
+        <TextBlock x:Name="textBlock1_Copy8" HorizontalAlignment="Left" Margin="269,394,0,0" TextWrapping="Wrap"
                    Text="{Binding Path=CommonMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock1_Copy9" HorizontalAlignment="Left" Margin="133,348,0,0" TextWrapping="Wrap"
                    Text="{Binding Path=FirstMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
@@ -230,9 +231,26 @@
 
         <Grid Grid.Row="1" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
-                
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <DataGrid />
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Карта здоровья"/>
+            <DataGrid Grid.Row="1" Name="m_dgChakras" ItemsSource="{Binding Path=ChakrasCV}" AutoGenerateColumns="False"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}"/>
+                    <DataGridTextColumn Header="Физика/Земля" Binding="{Binding Path=Land}"/>
+                    <DataGridTextColumn Width="10" Binding="{Binding Plus}"/>
+                    <DataGridTextColumn Header="Энергия/Небо" Binding="{Binding Path=Sky}"/>
+                    <DataGridTextColumn Width="10" Binding="{Binding Equal}"/>
+                    <DataGridTextColumn Header="Итог" Binding="{Binding Path=Total}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Итог:"/>
+                <TextBlock Text="{Binding HealthTotal}" Margin="10,0,0,0"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

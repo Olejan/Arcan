@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,91 @@ namespace Arcan
         }
     }
 
-    public class Arcan_VM:INotifyPropertyChanged
+    public static class Utils
+    {
+        public static int GetArcNum(int num)
+        {
+            if (num < 0) num *= -1;// на всякий случай
+            if (num <= 22) return num;
+            List<int> lis = new List<int>();
+            do
+            {
+                int tail = num % 10;
+                num /= 10;
+                lis.Add(tail);
+            } while (num != 0);
+            int sum = 0;
+            foreach (int s in lis)
+            {
+                sum += s;
+            }
+            if (sum > 22)
+                sum = GetArcNum(sum);
+            return sum;
+        }
+    }
+    public class ObservableClass : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+    public class ChakraItem : ObservableClass
+    {
+        private string _Name;
+        private int _Land;
+        private int _Sky;
+        public ChakraItem() { }
+        public ChakraItem(string name, int land, int sky)
+        {
+            _Name = name; _Land = land; _Sky = sky;
+        }
+        public string Name
+        {
+            get { return _Name; }
+            set
+            {
+                _Name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+        public int Land
+        {
+            get { return _Land; }
+            set
+            {
+                _Land = value;
+                OnPropertyChanged("Land");
+                OnPropertyChanged("Total");
+            }
+        }
+        public int Sky
+        {
+            get { return _Sky; }
+            set
+            {
+                _Sky = value;
+                OnPropertyChanged("Sky");
+                OnPropertyChanged("Total");
+            }
+        }
+        public int Total
+        {
+            get { return Utils.GetArcNum(_Sky + _Land); }
+        }
+        public string Plus
+        {
+            get { return "+"; }
+        }
+        public string Equal
+        {
+            get { return "="; }
+        }
+    }
+
+    public class Arcan_VM : ObservableClass
     {
         #region Data
         private int _Personal;
@@ -58,18 +143,38 @@ namespace Arcan
         private int _HelthAdjna;
         private int _HelthVishudha;
         private int _HelthAnahata;
+        private int _HealthTotal;
         private string _Name;
         private DateTime _Birthday;
+        private ObservableCollection<ChakraItem> _Chakras = new ObservableCollection<ChakraItem>();
 
-        public event PropertyChangedEventHandler PropertyChanged;
         #endregion Data
         public Arcan_VM()
         {
             Personal = 1;GuardianAngel = 2;GiftAfter40 = 3;MainFromPast = 4;Father1stPoint = 5;Mother2ndPoint = 6;Father2ndPoint = 7;Mother1stPoint = 8;ComfortPoint = 9;PastLife1stPoint = 10;Money1stPoint = 11;MoneyEnter = 12;Love2ndPoint = 13;Money2ndPoint = 14;PastLife2ndPoint = 15;
             _Adjna = 1; _Vishudha = 1; _Anahata = 1;
             Sky = 16;Land = 17;FirstMission = 18; Man = 19;Woman = 20;SecondMission = 21;CommonMission = 22;
-            Name = "Name";Birthday = DateTime.Now;
+            Name = "Name";
+
+            _Chakras.Add(new ChakraItem() { Name = "Сахасрара" });
+            _Chakras.Add(new ChakraItem() { Name = "Аджна" });
+            _Chakras.Add(new ChakraItem() { Name = "Вишудха" });
+            _Chakras.Add(new ChakraItem() { Name = "Анахата" });
+            _Chakras.Add(new ChakraItem() { Name = "Манипура" });
+            _Chakras.Add(new ChakraItem() { Name = "Свадхистана" });
+            _Chakras.Add(new ChakraItem() { Name = "Муладхара" });
             //DateChanged = new RelayCommand(arg => DateChanged_Executed());
+
+            Birthday = DateTime.Now;
+        }
+        public ObservableCollection<ChakraItem> ChakrasCV
+        {
+            get { return _Chakras; }
+            set
+            {
+                _Chakras = value;
+                OnPropertyChanged("ChakrasCV");
+            }
         }
         public int Personal
         {
@@ -107,6 +212,7 @@ namespace Arcan
         public int HelthAdjna { get { return _HelthAdjna; } set { _HelthAdjna = value; OnPropertyChanged("HelthAdjna"); } }
         public int HelthVishudha { get { return _HelthVishudha; } set { _HelthVishudha = value; OnPropertyChanged("HelthVishudha"); } }
         public int HelthAnahata { get { return _HelthAnahata; } set { _HelthAnahata = value; OnPropertyChanged("HelthAnahata"); } }
+        public int HealthTotal { get { return _HealthTotal; } set { _HealthTotal = value; OnPropertyChanged("HealthTotal"); } }
         public string Name { get { return _Name; } set { _Name = value; OnPropertyChanged("Name"); } }
         public DateTime Birthday
         {
@@ -124,61 +230,53 @@ namespace Arcan
 
         //public ICommand DateChanged { get; set; }
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         private void DateChanged_Executed()
         {
             if (Birthday == null) return;
-            Personal = GetArcNum(Birthday.Day);
+            Personal = Utils.GetArcNum(Birthday.Day);
             GuardianAngel = Birthday.Month;
-            GiftAfter40 = GetArcNum(Birthday.Year); // !!!!!!!!!!
-            MainFromPast = GetArcNum(Personal + GuardianAngel + GiftAfter40);
-            ComfortPoint = GetArcNum(Personal + GuardianAngel + GiftAfter40 + MainFromPast);
-            Father1stPoint = GetArcNum(Personal + GuardianAngel);
-            Mother2ndPoint = GetArcNum(GuardianAngel + GiftAfter40);
-            Father2ndPoint = GetArcNum(MainFromPast + GiftAfter40);
-            Mother1stPoint = GetArcNum(Personal + MainFromPast);
-            PastLife1stPoint = GetArcNum(ComfortPoint + MainFromPast);
-            PastLife2ndPoint = GetArcNum(PastLife1stPoint + MainFromPast);
-            MoneyEnter = GetArcNum(ComfortPoint + GiftAfter40);
-            Money1stPoint = GetArcNum(PastLife1stPoint + MoneyEnter);
-            Love2ndPoint = GetArcNum(PastLife1stPoint + Money1stPoint);
-            Money2ndPoint = GetArcNum(Money1stPoint + MoneyEnter);
-            Sky = GetArcNum(GuardianAngel + MainFromPast);
-            Land = GetArcNum(Personal + GiftAfter40);
-            FirstMission = GetArcNum(Sky + Land);
-            Woman = GetArcNum(Mother1stPoint + Mother2ndPoint);
-            Man = GetArcNum(Father1stPoint + Father2ndPoint);
-            SecondMission = GetArcNum(Man + Woman);
-            CommonMission = GetArcNum(FirstMission + SecondMission);
-            Vishudha = GetArcNum(GuardianAngel + ComfortPoint);
-            Adjna = GetArcNum(GuardianAngel + Vishudha);
-            Anahata = GetArcNum(Vishudha + ComfortPoint);
-            HelthVishudha = GetArcNum(Personal + ComfortPoint);
-            HelthAdjna = GetArcNum(Personal + HelthVishudha);
-            HelthAnahata = GetArcNum(HelthVishudha + ComfortPoint);
-        }
-        private int GetArcNum(int num)
-        {
-            if (num < 0) num *= -1;// на всякий случай
-            if (num <= 22) return num;
-            List<int> lis = new List<int>();
-            do
-            {
-                int tail = num % 10;
-                num /= 10;
-                lis.Add(tail);
-            } while (num != 0);
-            int sum = 0;
-            foreach(int s in lis)
-            {
-                sum += s;
-            }
-            if (sum > 22)
-                sum = GetArcNum(sum);
-            return sum;
+            GiftAfter40 = Utils.GetArcNum(Birthday.Year); // !!!!!!!!!!
+            MainFromPast = Utils.GetArcNum(Personal + GuardianAngel + GiftAfter40);
+            ComfortPoint = Utils.GetArcNum(Personal + GuardianAngel + GiftAfter40 + MainFromPast);
+            Father1stPoint = Utils.GetArcNum(Personal + GuardianAngel);
+            Mother2ndPoint = Utils.GetArcNum(GuardianAngel + GiftAfter40);
+            Father2ndPoint = Utils.GetArcNum(MainFromPast + GiftAfter40);
+            Mother1stPoint = Utils.GetArcNum(Personal + MainFromPast);
+            PastLife1stPoint = Utils.GetArcNum(ComfortPoint + MainFromPast);
+            PastLife2ndPoint = Utils.GetArcNum(PastLife1stPoint + MainFromPast);
+            MoneyEnter = Utils.GetArcNum(ComfortPoint + GiftAfter40);
+            Money1stPoint = Utils.GetArcNum(PastLife1stPoint + MoneyEnter);
+            Love2ndPoint = Utils.GetArcNum(PastLife1stPoint + Money1stPoint);
+            Money2ndPoint = Utils.GetArcNum(Money1stPoint + MoneyEnter);
+            Sky = Utils.GetArcNum(GuardianAngel + MainFromPast);
+            Land = Utils.GetArcNum(Personal + GiftAfter40);
+            FirstMission = Utils.GetArcNum(Sky + Land);
+            Woman = Utils.GetArcNum(Mother1stPoint + Mother2ndPoint);
+            Man = Utils.GetArcNum(Father1stPoint + Father2ndPoint);
+            SecondMission = Utils.GetArcNum(Man + Woman);
+            CommonMission = Utils.GetArcNum(FirstMission + SecondMission);
+            Vishudha = Utils.GetArcNum(GuardianAngel + ComfortPoint);
+            Adjna = Utils.GetArcNum(GuardianAngel + Vishudha);
+            Anahata = Utils.GetArcNum(Vishudha + ComfortPoint);
+            HelthVishudha = Utils.GetArcNum(Personal + ComfortPoint);
+            HelthAdjna = Utils.GetArcNum(Personal + HelthVishudha);
+            HelthAnahata = Utils.GetArcNum(HelthVishudha + ComfortPoint);
+            _Chakras[0].Land = Personal;
+            _Chakras[0].Sky = GuardianAngel;
+            _Chakras[1].Land = HelthAdjna;
+            _Chakras[1].Sky = Adjna;
+            _Chakras[2].Land = HelthVishudha;
+            _Chakras[2].Sky = Vishudha;
+            _Chakras[3].Land = HelthAnahata;
+            _Chakras[3].Sky = Anahata;
+            _Chakras[4].Land = ComfortPoint;
+            _Chakras[4].Sky = ComfortPoint;
+            _Chakras[5].Land = MoneyEnter;
+            _Chakras[5].Sky = PastLife1stPoint;
+            _Chakras[6].Land = GiftAfter40;
+            _Chakras[6].Sky = MainFromPast;
+            OnPropertyChanged("ChakraCV");
+            HealthTotal = Utils.GetArcNum(_Chakras.Sum(a => a.Total));
         }
     }
     /*public class RelayCommand : ICommand
