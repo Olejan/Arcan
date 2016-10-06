@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -112,6 +113,65 @@ namespace Arcan
         }
     }
 
+    public class AgeItem
+    {
+        public float _Age;
+        private int _Arcan;
+        public AgeItem() { }
+        public AgeItem(float age, int arcan)
+        {
+            _Age = age; _Arcan = arcan;
+        }
+        public AgeItem(float botage, int botarcan, float topage, int toparcan)
+        {
+            Debug.Assert(topage > botage);
+            float rest = topage - botage;
+            _Age = botage + rest / 2;
+            _Arcan = Utils.GetArcNum(botarcan + toparcan);
+        }
+        public string Age
+        {
+            get
+            {
+                int fullyears = (int)_Age;
+                int months = (int)((_Age % 1) * 1000);
+                StringBuilder sb = new StringBuilder();
+                sb.Append(fullyears);
+                int i = fullyears % 10;
+                switch (i)
+                {
+                    case 0: case 5: case 6: case 7: case 8: case 9:
+                        sb.Append(" лет");
+                        break;
+                    case 1:
+                        sb.Append(" год");
+                        break;
+                    case 2: case 3: case 4:
+                        sb.Append(" года");
+                        break;
+                    default:
+                        sb.Append(" лет");
+                        break;
+                }
+                switch (months)
+                {
+                    case 125: sb.Append(" 1.5 месяца"); break;
+                    case 250: sb.Append(" 3 месяца"); break;
+                    case 375: sb.Append(" 4.5 месяца"); break;
+                    case 500: sb.Append(" 6 месяцев"); break;
+                    case 625: sb.Append(" 7.5 месяцев"); break;
+                    case 750: sb.Append(" 9 месяцев"); break;
+                    case 875: sb.Append(" 10.5 месяцев"); break;
+                }
+                return sb.ToString();
+            }
+        }
+        public int Arcan
+        {
+            get { return _Arcan; }
+        }
+    }
+
     public class Arcan_VM : ObservableClass
     {
         #region Data
@@ -147,10 +207,13 @@ namespace Arcan
         private string _Name;
         private DateTime _Birthday;
         private ObservableCollection<ChakraItem> _Chakras = new ObservableCollection<ChakraItem>();
+        private ObservableCollection<AgeItem> _Years = new ObservableCollection<AgeItem>();
 
         #endregion Data
         public Arcan_VM()
         {
+            var v = new AgeItem(30F, 3, 32.5F, 6);
+            var vv = v.Age;
             Personal = 1;GuardianAngel = 2;GiftAfter40 = 3;MainFromPast = 4;Father1stPoint = 5;Mother2ndPoint = 6;Father2ndPoint = 7;Mother1stPoint = 8;ComfortPoint = 9;PastLife1stPoint = 10;Money1stPoint = 11;MoneyEnter = 12;Love2ndPoint = 13;Money2ndPoint = 14;PastLife2ndPoint = 15;
             _Adjna = 1; _Vishudha = 1; _Anahata = 1;
             Sky = 16;Land = 17;FirstMission = 18; Man = 19;Woman = 20;SecondMission = 21;CommonMission = 22;
