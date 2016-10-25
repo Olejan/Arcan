@@ -122,14 +122,12 @@ namespace Arcan
         {
             _Age = age; _Arcan = arcan;
         }
-        public AgeItem(float botage, int botarcan, float topage, int toparcan)
+        public float Age
         {
-            Debug.Assert(topage > botage);
-            float rest = topage - botage;
-            _Age = botage + rest / 2;
-            _Arcan = Utils.GetArcNum(botarcan + toparcan);
+            get { return _Age; }
+            set { _Age = value; }
         }
-        public string Age
+        public string AgeString
         {
             get
             {
@@ -169,7 +167,41 @@ namespace Arcan
         public int Arcan
         {
             get { return _Arcan; }
+            set { _Arcan = value; }
         }
+        public string ArcanString
+        {
+            get { return _Arcan > 0 ? _Arcan.ToString() : string.Empty; }
+        }
+        #region Public Methods
+        public static AgeItem GetMiddle(AgeItem bot, AgeItem top)
+        {
+            Debug.Assert(top.Age > bot.Age);
+            float rest = top.Age - bot.Age;
+            AgeItem ai = new AgeItem();
+            ai.Age = bot.Age + rest / 2;
+            ai.Arcan = Utils.GetArcNum(bot.Arcan + top.Arcan);
+            return ai;
+        }
+        public static List<AgeItem> GetEightAges(AgeItem bot, AgeItem top)
+        {
+            List<AgeItem> res = new List<AgeItem>();
+            for(int i = 0; i < 8; i++) { res.Add(new AgeItem()); }
+            res[3] = GetMiddle(bot, top);
+            res[1] = GetMiddle(bot, res[3]);
+            res[0] = GetMiddle(bot, res[1]);
+            res[2] = GetMiddle(res[1], res[3]);
+            res[5] = GetMiddle(res[3], top);
+            res[4] = GetMiddle(res[3], res[5]);
+            res[6] = GetMiddle(res[5], top);
+            res[7] = new AgeItem(top.Age, top.Arcan);
+            return res;
+        }
+        public AgeItem Clone(AgeItem item)
+        {
+            return new AgeItem(item.Age, item.Arcan);
+        }
+        #endregion Public Methods
     }
 
     public class Arcan_VM : ObservableClass
@@ -207,14 +239,16 @@ namespace Arcan
         private string _Name;
         private DateTime _Birthday;
         private ObservableCollection<ChakraItem> _Chakras = new ObservableCollection<ChakraItem>();
-        private ObservableCollection<AgeItem> _Years = new ObservableCollection<AgeItem>();
-
+        private List<AgeItem> _Years20 = new List<AgeItem>();
+        private List<AgeItem> _Years40 = new List<AgeItem>();
+        private List<AgeItem> _Years60 = new List<AgeItem>();
+        private List<AgeItem> _Years80 = new List<AgeItem>();
         #endregion Data
+        #region Constructor
         public Arcan_VM()
         {
-            var v = new AgeItem(30F, 3, 32.5F, 6);
-            var vv = v.Age;
-            Personal = 1;GuardianAngel = 2;GiftAfter40 = 3;MainFromPast = 4;Father1stPoint = 5;Mother2ndPoint = 6;Father2ndPoint = 7;Mother1stPoint = 8;ComfortPoint = 9;PastLife1stPoint = 10;Money1stPoint = 11;MoneyEnter = 12;Love2ndPoint = 13;Money2ndPoint = 14;PastLife2ndPoint = 15;
+            Personal = 1; GuardianAngel = 2; GiftAfter40 = 3; MainFromPast = 4; Father1stPoint = 5; Mother2ndPoint = 6; Father2ndPoint = 7; Mother1stPoint = 8;
+            ComfortPoint = 9; PastLife1stPoint = 10; Money1stPoint = 11; MoneyEnter = 12; Love2ndPoint = 13; Money2ndPoint = 14; PastLife2ndPoint = 15;
             _Adjna = 1; _Vishudha = 1; _Anahata = 1;
             Sky = 16;Land = 17;FirstMission = 18; Man = 19;Woman = 20;SecondMission = 21;CommonMission = 22;
             Name = "Name";
@@ -228,8 +262,13 @@ namespace Arcan
             _Chakras.Add(new ChakraItem() { Name = "Муладхара" });
             //DateChanged = new RelayCommand(arg => DateChanged_Executed());
 
-            Birthday = DateTime.Now;
+            
+
+
+            Birthday = DateTime.Now; // Старт вычисления
         }
+        #endregion Constructor
+        #region Properties
         public ObservableCollection<ChakraItem> ChakrasCV
         {
             get { return _Chakras; }
@@ -237,6 +276,42 @@ namespace Arcan
             {
                 _Chakras = value;
                 OnPropertyChanged("ChakrasCV");
+            }
+        }
+        public List<AgeItem> Years20CV
+        {
+            get { return _Years20; }
+            set
+            {
+                _Years20 = value;
+                OnPropertyChanged("Years20CV");
+            }
+        }
+        public List<AgeItem> Years40CV
+        {
+            get { return _Years40; }
+            set
+            {
+                _Years40 = value;
+                OnPropertyChanged("Years40CV");
+            }
+        }
+        public List<AgeItem> Years60CV
+        {
+            get { return _Years60; }
+            set
+            {
+                _Years60 = value;
+                OnPropertyChanged("Years60CV");
+            }
+        }
+        public List<AgeItem> Years80CV
+        {
+            get { return _Years80; }
+            set
+            {
+                _Years80 = value;
+                OnPropertyChanged("Years80CV");
             }
         }
         public int Personal
@@ -292,7 +367,8 @@ namespace Arcan
         }
 
         //public ICommand DateChanged { get; set; }
-
+        #endregion Properties
+        #region Methods
         private void DateChanged_Executed()
         {
             if (Birthday == null) return;
@@ -340,7 +416,33 @@ namespace Arcan
             _Chakras[6].Sky = MainFromPast;
             OnPropertyChanged("ChakraCV");
             HealthTotal = Utils.GetArcNum(_Chakras.Sum(a => a.Total));
+
+            List<AgeItem> tmp = AgeItem.GetEightAges(new AgeItem(0f, _Personal), new AgeItem(10f, _Father1stPoint));
+            _Years20.Clear();
+            _Years20.AddRange(tmp);
+            tmp = AgeItem.GetEightAges(new AgeItem(10f, _Father1stPoint), new AgeItem(20f, _GuardianAngel));
+            _Years20.AddRange(tmp);
+            OnPropertyChanged("Years20CV");
+            _Years40.Clear();
+            tmp = AgeItem.GetEightAges(new AgeItem(20f, _GuardianAngel), new AgeItem(30f, _Mother2ndPoint));
+            _Years40.AddRange(tmp);
+            tmp = AgeItem.GetEightAges(new AgeItem(30f, _Mother2ndPoint), new AgeItem(40f, _GiftAfter40));
+            _Years40.AddRange(tmp);
+            OnPropertyChanged("Years40CV");
+            _Years60.Clear();
+            tmp = AgeItem.GetEightAges(new AgeItem(40f, _GiftAfter40), new AgeItem(50f, _Father2ndPoint));
+            _Years60.AddRange(tmp);
+            tmp = AgeItem.GetEightAges(new AgeItem(50f, _Father2ndPoint), new AgeItem(60f, _MainFromPast));
+            _Years60.AddRange(tmp);
+            OnPropertyChanged("Years60CV");
+            _Years80.Clear();
+            tmp = AgeItem.GetEightAges(new AgeItem(60f, _MainFromPast), new AgeItem(70f, _Mother1stPoint));
+            _Years80.AddRange(tmp);
+            tmp = AgeItem.GetEightAges(new AgeItem(70f, _Mother1stPoint), new AgeItem(80f, _Personal));
+            _Years80.AddRange(tmp);
+            OnPropertyChanged("Years80CV");
         }
+        #endregion Methods
     }
     /*public class RelayCommand : ICommand
     {

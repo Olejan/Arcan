@@ -262,10 +262,34 @@
             </TabItem>
             <TabItem Header="Расчёт по годам">
                 <Grid>
-                    <DataGrid Grid.Row="1" Name="m_dgYears" ItemsSource="{Binding Path=YearsCV}" AutoGenerateColumns="False" IsReadOnly="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="m_dgYears20" ItemsSource="{Binding Path=Years20CV}" AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=Age}"/>
-                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=Arcan}"/>
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*"/>
+                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid Grid.Column="1" Name="m_dgYears40" ItemsSource="{Binding Path=Years40CV}" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*"/>
+                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid Grid.Column="2" Name="m_dgYears60" ItemsSource="{Binding Path=Years60CV}" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*"/>
+                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid Grid.Column="3" Name="m_dgYears80" ItemsSource="{Binding Path=Years80CV}" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*"/>
+                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
