@@ -239,10 +239,9 @@ namespace Arcan
         private string _Name;
         private DateTime _Birthday;
         private ObservableCollection<ChakraItem> _Chakras = new ObservableCollection<ChakraItem>();
-        private List<AgeItem> _Years20 = new List<AgeItem>();
-        private List<AgeItem> _Years40 = new List<AgeItem>();
-        private List<AgeItem> _Years60 = new List<AgeItem>();
-        private List<AgeItem> _Years80 = new List<AgeItem>();
+        private ObservableCollection<AgeItem> _Years27 = new ObservableCollection<AgeItem>();
+        private ObservableCollection<AgeItem> _Years55 = new ObservableCollection<AgeItem>();
+        private ObservableCollection<AgeItem> _Years80 = new ObservableCollection<AgeItem>();
         #endregion Data
         #region Constructor
         public Arcan_VM()
@@ -278,34 +277,25 @@ namespace Arcan
                 OnPropertyChanged("ChakrasCV");
             }
         }
-        public List<AgeItem> Years20CV
+        public ObservableCollection<AgeItem> Years27CV
         {
-            get { return _Years20; }
+            get { return _Years27; }
             set
             {
-                _Years20 = value;
-                OnPropertyChanged("Years20CV");
+                _Years27 = value;
+                OnPropertyChanged("Years27CV");
             }
         }
-        public List<AgeItem> Years40CV
+        public ObservableCollection<AgeItem> Years55CV
         {
-            get { return _Years40; }
+            get { return _Years55; }
             set
             {
-                _Years40 = value;
-                OnPropertyChanged("Years40CV");
+                _Years55 = value;
+                OnPropertyChanged("Years55CV");
             }
         }
-        public List<AgeItem> Years60CV
-        {
-            get { return _Years60; }
-            set
-            {
-                _Years60 = value;
-                OnPropertyChanged("Years60CV");
-            }
-        }
-        public List<AgeItem> Years80CV
+        public ObservableCollection<AgeItem> Years80CV
         {
             get { return _Years80; }
             set
@@ -418,28 +408,38 @@ namespace Arcan
             HealthTotal = Utils.GetArcNum(_Chakras.Sum(a => a.Total));
 
             List<AgeItem> tmp = AgeItem.GetEightAges(new AgeItem(0f, _Personal), new AgeItem(10f, _Father1stPoint));
-            _Years20.Clear();
-            _Years20.AddRange(tmp);
+            _Years27.Clear();
+            foreach (var it in tmp)
+                _Years27.Add(it);
             tmp = AgeItem.GetEightAges(new AgeItem(10f, _Father1stPoint), new AgeItem(20f, _GuardianAngel));
-            _Years20.AddRange(tmp);
-            OnPropertyChanged("Years20CV");
-            _Years40.Clear();
+            foreach (var it in tmp)
+                _Years27.Add(it);
             tmp = AgeItem.GetEightAges(new AgeItem(20f, _GuardianAngel), new AgeItem(30f, _Mother2ndPoint));
-            _Years40.AddRange(tmp);
+            for (int i = 0; i < 6; i++)
+                _Years27.Add(tmp[i]);
+            OnPropertyChanged("Years27CV");
+            _Years55.Clear();
+            _Years55.Add(tmp[6]);
+            _Years55.Add(tmp[7]);
             tmp = AgeItem.GetEightAges(new AgeItem(30f, _Mother2ndPoint), new AgeItem(40f, _GiftAfter40));
-            _Years40.AddRange(tmp);
-            OnPropertyChanged("Years40CV");
-            _Years60.Clear();
+            foreach (AgeItem it in tmp)
+                _Years55.Add(it);
             tmp = AgeItem.GetEightAges(new AgeItem(40f, _GiftAfter40), new AgeItem(50f, _Father2ndPoint));
-            _Years60.AddRange(tmp);
+            foreach (AgeItem it in tmp)
+                _Years55.Add(it);
             tmp = AgeItem.GetEightAges(new AgeItem(50f, _Father2ndPoint), new AgeItem(60f, _MainFromPast));
-            _Years60.AddRange(tmp);
-            OnPropertyChanged("Years60CV");
+            for (int i = 0; i < 4; i++)
+                _Years55.Add(tmp[i]);
+            OnPropertyChanged("Years55CV");
             _Years80.Clear();
+            for (int i = 4; i < 8; i++)
+                _Years80.Add(tmp[i]);
             tmp = AgeItem.GetEightAges(new AgeItem(60f, _MainFromPast), new AgeItem(70f, _Mother1stPoint));
-            _Years80.AddRange(tmp);
+            foreach (AgeItem it in tmp)
+                _Years80.Add(it);
             tmp = AgeItem.GetEightAges(new AgeItem(70f, _Mother1stPoint), new AgeItem(80f, _Personal));
-            _Years80.AddRange(tmp);
+            foreach (AgeItem it in tmp)
+                _Years80.Add(it);
             OnPropertyChanged("Years80CV");
         }
         #endregion Methods
