@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Arcan"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="540" Width="525">
+        WindowStyle="SingleBorderWindow"
+        Title="Arcan" Height="550" Width="525"
+        ResizeMode="CanMinimize">
     <Window.DataContext>
         <local:Arcan_VM/>
     </Window.DataContext>
@@ -15,10 +17,9 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <TextBlock Text="Дата рождения:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,170,0"/>
         <DatePicker HorizontalAlignment="Right" Margin="16,0,25,0" VerticalAlignment="Center" Width="130"
                     SelectedDate="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox x:Name="textBlock_Copy13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,6,0,6" TextWrapping="Wrap"
-                           Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="177"/>
         <TabControl Grid.Row="1" x:Name="tabControl" HorizontalAlignment="Stretch"  Margin="3" VerticalAlignment="Stretch">
             <TabItem Header="Основной расчёт">
                 <Grid>
@@ -121,7 +122,7 @@
                            Text="{Binding Path=ComfortPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock_Copy8" HorizontalAlignment="Left" Margin="245,230,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=PastLife1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy9" HorizontalAlignment="Left" Margin="295,183,0,0" TextWrapping="Wrap"
+                    <TextBlock x:Name="textBlock_Copy9" HorizontalAlignment="Left" Margin="297,183,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=Money1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock_Copy10" HorizontalAlignment="Left" Margin="335,139,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=MoneyEnter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
@@ -139,25 +140,25 @@
                            Text="{Binding Path=Sky, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left" Margin="83,361,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=Land, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy3" HorizontalAlignment="Left" Margin="328,335,0,0" TextWrapping="Wrap"
+                    <TextBlock x:Name="textBlock1_Copy3" HorizontalAlignment="Left" Margin="328,332,0,0" TextWrapping="Wrap"
                            Text="Муж.р." VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy4" HorizontalAlignment="Left" Margin="328,364,0,0" TextWrapping="Wrap"
+                    <TextBlock x:Name="textBlock1_Copy4" HorizontalAlignment="Left" Margin="328,361,0,0" TextWrapping="Wrap"
                            Text="Жен.р." VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy5" HorizontalAlignment="Left" Margin="395,335,0,0" TextWrapping="Wrap"
+                    <TextBlock x:Name="textBlock1_Copy5" HorizontalAlignment="Left" Margin="395,332,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=Man, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy6" HorizontalAlignment="Left" Margin="395,364,0,0" TextWrapping="Wrap"
+                    <TextBlock x:Name="textBlock1_Copy6" HorizontalAlignment="Left" Margin="395,361,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=Woman, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock1_Copy7" HorizontalAlignment="Left" Margin="202,394,0,0" TextWrapping="Wrap"
                            Text="Общее" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock1_Copy8" HorizontalAlignment="Left" Margin="269,394,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=CommonMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy9" HorizontalAlignment="Left" Margin="133,348,0,0" TextWrapping="Wrap"
+                    <TextBlock x:Name="textBlock1_Copy9" HorizontalAlignment="Left" Margin="133,347,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=FirstMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy10" HorizontalAlignment="Left" Margin="445,348,0,0" TextWrapping="Wrap"
+                    <TextBlock x:Name="textBlock1_Copy10" HorizontalAlignment="Left" Margin="441,347,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=SecondMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <Label x:Name="label" Content="}" HorizontalAlignment="Left" Margin="104,300,0,0" VerticalAlignment="Top" FontSize="64"/>
-                    <Label x:Name="label_Copy" Content="}" HorizontalAlignment="Left" Margin="416,303,0,0" VerticalAlignment="Top" FontSize="64"/>
-                    <Label x:Name="label_Copy1" Content="{}{" HorizontalAlignment="Left" Margin="224,223,0,0" VerticalAlignment="Top" FontSize="55"/>
+                    <Label x:Name="label" Content="}" HorizontalAlignment="Left" Margin="101,321,0,0" VerticalAlignment="Top" FontSize="52" FontFamily="SimSun"/>
+                    <Label x:Name="label_Copy" Content="}" HorizontalAlignment="Left" Margin="410,321,0,0" VerticalAlignment="Top" FontSize="52" FontFamily="SimSun"/>
+                    <Label x:Name="label_Copy1" Content="{}{" HorizontalAlignment="Left" Margin="218,234,0,0" VerticalAlignment="Top" FontSize="55" FontFamily="SimSun"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="148,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="165,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,64,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
@@ -240,21 +241,40 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Карта здоровья">
-                <Grid Grid.Row="1" HorizontalAlignment="Center">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="25"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Карта здоровья"/>
-                    <DataGrid Grid.Row="1" Name="m_dgChakras" ItemsSource="{Binding Path=ChakrasCV}" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid Grid.Row="1" Name="m_dgChakras" ItemsSource="{Binding Path=ChakrasCV}" AutoGenerateColumns="False" IsReadOnly="True"
+                              Sorting="CancelSorting" SelectionMode="Single">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}"/>
-                            <DataGridTextColumn Header="Физика/Земля" Binding="{Binding Path=Land}"/>
-                            <DataGridTextColumn Width="10" Binding="{Binding Plus}"/>
-                            <DataGridTextColumn Header="Энергия/Небо" Binding="{Binding Path=Sky}"/>
-                            <DataGridTextColumn Width="10" Binding="{Binding Equal}"/>
-                            <DataGridTextColumn Header="Итог" Binding="{Binding Path=Total}"/>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}" CanUserResize="False" CanUserReorder="False"/>
+                            <DataGridTextColumn Header="Физика/Земля" Binding="{Binding Path=Land}" CanUserResize="False" CanUserReorder="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="10" Binding="{Binding Plus}" CanUserResize="False" CanUserReorder="False"/>
+                            <DataGridTextColumn Header="Энергия/Небо" Binding="{Binding Path=Sky}" CanUserResize="False" CanUserReorder="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="10" Binding="{Binding Equal}" CanUserResize="False" CanUserReorder="False"/>
+                            <DataGridTextColumn Header="Итог" Binding="{Binding Path=Total}" CanUserResize="False" CanUserReorder="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -271,22 +291,43 @@
                         <ColumnDefinition Width="*"/>
                         <!--ColumnDefinition Width="*"/-->
                     </Grid.ColumnDefinitions>
-                    <DataGrid Name="m_dgYears27" ItemsSource="{Binding Path=Years27CV}" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid Name="m_dgYears27" ItemsSource="{Binding Path=Years27CV}" AutoGenerateColumns="False" IsReadOnly="True"
+                              Sorting="CancelSorting">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*"/>
-                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}"/>
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*" CanUserReorder="False"/>
+                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}" CanUserReorder="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid Grid.Column="1" Name="m_dgYears55" ItemsSource="{Binding Path=Years55CV}" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid Grid.Column="1" Name="m_dgYears55" ItemsSource="{Binding Path=Years55CV}" AutoGenerateColumns="False" IsReadOnly="True"
+                              Sorting="CancelSorting">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*"/>
-                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}"/>
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*" CanUserReorder="False"/>
+                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}" CanUserReorder="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid Grid.Column="2" Name="m_dgYears80" ItemsSource="{Binding Path=Years80CV}" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid Grid.Column="2" Name="m_dgYears80" ItemsSource="{Binding Path=Years80CV}" AutoGenerateColumns="False" IsReadOnly="True"
+                              Sorting="CancelSorting">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*"/>
-                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}"/>
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Path=AgeString}" Width="*" CanUserReorder="False"/>
+                            <DataGridTextColumn Header="Аркан" Binding="{Binding Path=ArcanString}" CanUserReorder="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

@@ -27,6 +27,11 @@ namespace Arcan
         {
             InitializeComponent();
         }
+
+        private void CancelSorting(object sender, DataGridSortingEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 
     public static class Utils
@@ -136,30 +141,67 @@ namespace Arcan
                 StringBuilder sb = new StringBuilder();
                 sb.Append(fullyears);
                 int i = fullyears % 10;
-                switch (i)
+                if (months != 500)
                 {
-                    case 0: case 5: case 6: case 7: case 8: case 9:
-                        sb.Append(" лет");
-                        break;
-                    case 1:
-                        sb.Append(" год");
-                        break;
-                    case 2: case 3: case 4:
-                        sb.Append(" года");
-                        break;
-                    default:
-                        sb.Append(" лет");
-                        break;
+                    switch (i)
+                    {
+                        case 0:
+                        case 5:
+                        case 6:
+                        case 7:
+                        case 8:
+                        case 9:
+                            sb.Append(" лет");
+                            break;
+                        case 1:
+                            sb.Append(" год");
+                            break;
+                        case 2:
+                        case 3:
+                        case 4:
+                            sb.Append(" года");
+                            break;
+                        default:
+                            sb.Append(" лет");
+                            break;
+                    }
                 }
                 switch (months)
                 {
-                    case 125: sb.Append(" 1.5 месяца"); break;
+                    case 125: sb.Append(" 1,5 месяца"); break;
                     case 250: sb.Append(" 3 месяца"); break;
-                    case 375: sb.Append(" 4.5 месяца"); break;
-                    case 500: sb.Append(" 6 месяцев"); break;
-                    case 625: sb.Append(" 7.5 месяцев"); break;
+                    case 375: sb.Append(" 4,5 месяца"); break;
+                    case 500:
+                        //sb.Append(" 6 месяцев");
+                        sb.Append(",5");
+                        if (fullyears == 0)
+                            sb.Append(" года");
+                        else if (fullyears >= 10 && fullyears <= 20)
+                            sb.Append(" лет");
+                        else
+                        {
+                            switch (i)
+                            {
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                    sb.Append(" года");
+                                    break;
+                                case 0:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 8:
+                                case 9:
+                                    sb.Append(" лет");
+                                    break;
+                            }
+                        }
+                        break;
+                    case 625: sb.Append(" 7,5 месяцев"); break;
                     case 750: sb.Append(" 9 месяцев"); break;
-                    case 875: sb.Append(" 10.5 месяцев"); break;
+                    case 875: sb.Append(" 10,5 месяцев"); break;
                 }
                 return sb.ToString();
             }
@@ -236,7 +278,6 @@ namespace Arcan
         private int _HelthVishudha;
         private int _HelthAnahata;
         private int _HealthTotal;
-        private string _Name;
         private DateTime _Birthday;
         private ObservableCollection<ChakraItem> _Chakras = new ObservableCollection<ChakraItem>();
         private ObservableCollection<AgeItem> _Years27 = new ObservableCollection<AgeItem>();
@@ -250,7 +291,6 @@ namespace Arcan
             ComfortPoint = 9; PastLife1stPoint = 10; Money1stPoint = 11; MoneyEnter = 12; Love2ndPoint = 13; Money2ndPoint = 14; PastLife2ndPoint = 15;
             _Adjna = 1; _Vishudha = 1; _Anahata = 1;
             Sky = 16;Land = 17;FirstMission = 18; Man = 19;Woman = 20;SecondMission = 21;CommonMission = 22;
-            Name = "Name";
 
             _Chakras.Add(new ChakraItem() { Name = "Сахасрара" });
             _Chakras.Add(new ChakraItem() { Name = "Аджна" });
@@ -341,7 +381,6 @@ namespace Arcan
         public int HelthVishudha { get { return _HelthVishudha; } set { _HelthVishudha = value; OnPropertyChanged("HelthVishudha"); } }
         public int HelthAnahata { get { return _HelthAnahata; } set { _HelthAnahata = value; OnPropertyChanged("HelthAnahata"); } }
         public int HealthTotal { get { return _HealthTotal; } set { _HealthTotal = value; OnPropertyChanged("HealthTotal"); } }
-        public string Name { get { return _Name; } set { _Name = value; OnPropertyChanged("Name"); } }
         public DateTime Birthday
         {
             get { return _Birthday; }
