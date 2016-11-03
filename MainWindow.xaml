@@ -27,8 +27,8 @@
                         <RowDefinition Height="430"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="184" Margin="167,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="183"/>
-                    <Rectangle HorizontalAlignment="Left" Height="184" Margin="167,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="183" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="184" Margin="167,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="184"/>
+                    <Rectangle HorizontalAlignment="Left" Height="184" Margin="167,65,0,0" Stroke="Black" VerticalAlignment="Top" Width="184" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -38,7 +38,7 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="132,159,0,0" Stroke="Black" VerticalAlignment="Top" Width="254" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="130,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="258" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleY="-1"/>
@@ -48,7 +48,7 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="132,158,0,0" Stroke="Black" VerticalAlignment="Top" Width="254" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="130,156,0,0" Stroke="Black" VerticalAlignment="Top" Width="258" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleY="-1"/>
@@ -58,7 +58,7 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="133,158,0,0" Stroke="Black" VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="130,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="258" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleY="-1"/>
@@ -68,7 +68,7 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="131,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="254" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="130,158,0,0" Stroke="Black" VerticalAlignment="Top" Width="259" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleY="-1" ScaleX="-1"/>
@@ -78,7 +78,7 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="242,204,0,0" Stroke="Black" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="240,203,0,0" Stroke="Black" VerticalAlignment="Top" Width="129" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleY="-1"/>
@@ -88,14 +88,14 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="128,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="128,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="165,64,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="385,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,26,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="385,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="257,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="257,247,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="347,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="348,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="302,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="281,222,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="326,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
@@ -159,12 +159,12 @@
                     <Label x:Name="label" Content="}" HorizontalAlignment="Left" Margin="101,321,0,0" VerticalAlignment="Top" FontSize="52" FontFamily="SimSun"/>
                     <Label x:Name="label_Copy" Content="}" HorizontalAlignment="Left" Margin="410,321,0,0" VerticalAlignment="Top" FontSize="52" FontFamily="SimSun"/>
                     <Label x:Name="label_Copy1" Content="{}{" HorizontalAlignment="Left" Margin="218,234,0,0" VerticalAlignment="Top" FontSize="55" FontFamily="SimSun"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="148,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="165,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="148,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="165,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,64,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,107,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="210,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="210,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
                     <TextBlock x:Name="textBlock_Copy14" HorizontalAlignment="Left" Margin="147,142,0,0" TextWrapping="Wrap"
                            Text="{Binding HelthAdjna, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlock_Copy15" HorizontalAlignment="Left" Margin="169,142,0,0" TextWrapping="Wrap"
@@ -212,8 +212,8 @@
                             </TransformGroup>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-                    <TextBlock x:Name="textBlock_Copy24" HorizontalAlignment="Center" Margin="186,250,285,0" TextWrapping="Wrap" FontSize="8"
-                           Text="Прошлые жизни" VerticalAlignment="Top" Width="46"/>
+                    <TextBlock x:Name="textBlock_Copy24" TextWrapping="Wrap" FontSize="8"
+                           Text="Прошлые жизни" VerticalAlignment="Top" Width="58" Margin="187,251,262,0"/>
                     <TextBlock x:Name="textBlock_Copy25" HorizontalAlignment="Left" Margin="319,168,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
                            Text="$" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                         <TextBlock.RenderTransform>
@@ -237,7 +237,7 @@
                         </TextBlock.RenderTransform>
                     </TextBlock>
 
-                    
+
                 </Grid>
             </TabItem>
             <TabItem Header="Карта здоровья">
