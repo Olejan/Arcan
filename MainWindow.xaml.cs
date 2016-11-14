@@ -32,6 +32,14 @@ namespace Arcan
         {
             e.Handled = true;
         }
+
+        private void tabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((sender as TabControl).SelectedIndex == 3)
+                dt_SecondDT.Visibility = Visibility.Visible;
+            else
+                dt_SecondDT.Visibility = Visibility.Collapsed;
+        }
     }
 
     public static class Utils
@@ -250,19 +258,30 @@ namespace Arcan
     {
         #region Data
         private DateTime _Birthday;
+        private DateTime _SecondBD;
         private MatrixVM _MainMatrix_VM;
+        private MatrixVM _SecondMatrix_VM;
+        private MatrixVM _CommonMatrix_VM;
         private YearsGridVM _YearsGrid_VM;
+        //private DelegateCommand _CmdTabItemChanged;
         #endregion Data
         #region Constructor
         public Arcan_VM()
         {
-            _Birthday = DateTime.Now; // Старт вычисления
-            _MainMatrix_VM = new MatrixVM(_Birthday);
+            _Birthday = DateTime.Now;
+            _SecondBD = DateTime.Now;
+            _MainMatrix_VM = new MatrixVM(_Birthday, _Birthday.ToShortDateString(), new SolidColorBrush(Color.FromRgb(255, 255, 187)));
+            _SecondMatrix_VM = new MatrixVM(_SecondBD, _SecondBD.ToShortDateString(), new SolidColorBrush(Color.FromRgb(187, 238, 255)));
+            _CommonMatrix_VM = new MatrixVM(new SolidColorBrush(Color.FromRgb(189, 255, 187)));
             _YearsGrid_VM = new YearsGridVM(_MainMatrix_VM);
-            DateChanged_Executed();
+            DateChanged_Executed(); // Старт вычисления
         }
         #endregion Constructor
         #region Properties
+        /*public ICommand CmdTabItemChanged
+        {
+            get { return _CmdTabItemChanged ?? (_CmdTabItemChanged = new DelegateCommand(CmdTabItemChanged_Executed)); }
+        }*/
         public MatrixVM MainMatrix_VM
         {
             get { return _MainMatrix_VM; }
@@ -270,6 +289,24 @@ namespace Arcan
             {
                 _MainMatrix_VM = value;
                 OnPropertyChanged("MainMatrix_VM");
+            }
+        }
+        public MatrixVM SecondMatrix_VM
+        {
+            get { return _SecondMatrix_VM; }
+            set
+            {
+                _SecondMatrix_VM = value;
+                OnPropertyChanged("SecondMatrix_VM");
+            }
+        }
+        public MatrixVM CommonMatrix_VM
+        {
+            get { return _CommonMatrix_VM; }
+            set
+            {
+                _CommonMatrix_VM = value;
+                OnPropertyChanged("CommonMatrix_VM");
             }
         }
         public YearsGridVM YearsGrid_VM
@@ -294,6 +331,19 @@ namespace Arcan
                 }
             }
         }
+        public DateTime SecondBD
+        {
+            get { return _SecondBD; }
+            set
+            {
+                if (_SecondBD != value)
+                {
+                    _SecondBD = value;
+                    OnPropertyChanged("SecondBD");
+                    CommonMatrixCalculate();
+                }
+            }
+        }
 
         //public ICommand DateChanged { get; set; }
         #endregion Properties
@@ -301,11 +351,36 @@ namespace Arcan
         private void DateChanged_Executed()
         {
             if (Birthday == null) return;
+            _MainMatrix_VM.Birthday = Birthday;
             _MainMatrix_VM.Init();
             _YearsGrid_VM.Init();
             OnPropertyChanged("MainMatrix_VM");
             OnPropertyChanged("YearsGrid_VM");
+            CommonMatrixCalculate();
         }
+        private void CommonMatrixCalculate()
+        {
+            if (_SecondMatrix_VM == null) return;
+            _SecondMatrix_VM.Birthday = SecondBD;
+            _SecondMatrix_VM.Init();
+            _CommonMatrix_VM.MatrixName = SecondMatrix_VM.MatrixName + " + " + MainMatrix_VM.MatrixName;
+            _CommonMatrix_VM.Personal = Utils.GetArcNum(_MainMatrix_VM.Personal + _SecondMatrix_VM.Personal);
+            _CommonMatrix_VM.GuardianAngel = Utils.GetArcNum(_MainMatrix_VM.GuardianAngel + _SecondMatrix_VM.GuardianAngel);
+            _CommonMatrix_VM.GiftAfter40 = Utils.GetArcNum(_MainMatrix_VM.GiftAfter40 + _SecondMatrix_VM.GiftAfter40);
+            _CommonMatrix_VM.MainFromPast = Utils.GetArcNum(_MainMatrix_VM.MainFromPast + _SecondMatrix_VM.MainFromPast);
+            _CommonMatrix_VM.Father1stPoint = Utils.GetArcNum(_MainMatrix_VM.Father1stPoint + _SecondMatrix_VM.Father1stPoint);
+            _CommonMatrix_VM.Father2ndPoint = Utils.GetArcNum(_MainMatrix_VM.Father2ndPoint + _SecondMatrix_VM.Father2ndPoint);
+            _CommonMatrix_VM.Mother1stPoint = Utils.GetArcNum(_MainMatrix_VM.Mother1stPoint + _SecondMatrix_VM.Mother1stPoint);
+            _CommonMatrix_VM.Mother2ndPoint = Utils.GetArcNum(_MainMatrix_VM.Mother2ndPoint + _SecondMatrix_VM.Mother2ndPoint);
+            _CommonMatrix_VM.ComfortPoint = Utils.GetArcNum(_MainMatrix_VM.ComfortPoint + _SecondMatrix_VM.ComfortPoint);
+            _CommonMatrix_VM.CalcMissions();
+            OnPropertyChanged("CommonMatrix_VM");
+            
+        }
+        /*private void CmdTabItemChanged_Executed(object param)
+        {
+            
+        }*/
         #endregion Methods
     }
     /*public class RelayCommand : ICommand

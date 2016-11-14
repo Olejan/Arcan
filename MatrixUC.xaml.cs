@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,8 @@ namespace Arcan
     public class MatrixVM : ObservableClass
     {
         #region Data
+        private string _sMatrixName;
+        private Brush _BackgroundColor;
         private int _Personal;
         private int _GuardianAngel;
         private int _GiftAfter40;
@@ -63,8 +66,14 @@ namespace Arcan
         private ObservableCollection<ChakraItem> _Chakras = new ObservableCollection<ChakraItem>();
         #endregion Data
         #region Constructor
-        public MatrixVM(DateTime date)
+        public MatrixVM(Brush background)
         {
+            BackgroundColor = background;
+        }
+        public MatrixVM(DateTime date, string matrixname, Brush background)
+        {
+            _sMatrixName = matrixname;
+            BackgroundColor = background;
             Personal = 1; GuardianAngel = 2; GiftAfter40 = 3; MainFromPast = 4; Father1stPoint = 5; Mother2ndPoint = 6; Father2ndPoint = 7; Mother1stPoint = 8;
             ComfortPoint = 9; PastLife1stPoint = 10; Money1stPoint = 11; MoneyEnter = 12; Love2ndPoint = 13; Money2ndPoint = 14; PastLife2ndPoint = 15;
             Adjna = 1; Vishudha = 1; Anahata = 1;
@@ -88,6 +97,24 @@ namespace Arcan
         }
         #endregion Constructor
         #region Properties
+        public string MatrixName
+        {
+            get { return _sMatrixName; }
+            set
+            {
+                _sMatrixName = value;
+                OnPropertyChanged("MatrixName");
+            }
+        }
+        public Brush BackgroundColor
+        {
+            get { return _BackgroundColor; }
+            set
+            {
+                _BackgroundColor = value;
+                OnPropertyChanged("BackgroundColor");
+            }
+        }
         public ObservableCollection<ChakraItem> ChakrasCV
         {
             get { return _Chakras; }
@@ -153,6 +180,7 @@ namespace Arcan
         public void Init()
         {
             if (Birthday == null) return;
+            MatrixName = _Birthday.ToShortDateString();
             Personal = Utils.GetArcNum(Birthday.Day);
             GuardianAngel = Birthday.Month;
             GiftAfter40 = Utils.GetArcNum(Birthday.Year); // !!!!!!!!!!
@@ -168,13 +196,7 @@ namespace Arcan
             Money1stPoint = Utils.GetArcNum(PastLife1stPoint + MoneyEnter);
             Love2ndPoint = Utils.GetArcNum(PastLife1stPoint + Money1stPoint);
             Money2ndPoint = Utils.GetArcNum(Money1stPoint + MoneyEnter);
-            Sky = Utils.GetArcNum(GuardianAngel + MainFromPast);
-            Land = Utils.GetArcNum(Personal + GiftAfter40);
-            FirstMission = Utils.GetArcNum(Sky + Land);
-            Woman = Utils.GetArcNum(Mother1stPoint + Mother2ndPoint);
-            Man = Utils.GetArcNum(Father1stPoint + Father2ndPoint);
-            SecondMission = Utils.GetArcNum(Man + Woman);
-            CommonMission = Utils.GetArcNum(FirstMission + SecondMission);
+            CalcMissions();
             Vishudha = Utils.GetArcNum(GuardianAngel + ComfortPoint);
             Adjna = Utils.GetArcNum(GuardianAngel + Vishudha);
             Anahata = Utils.GetArcNum(Vishudha + ComfortPoint);
@@ -198,47 +220,63 @@ namespace Arcan
             OnPropertyChanged("ChakraCV");
             HealthTotal = Utils.GetArcNum(_Chakras.Sum(a => a.Total));
         }
+        public void CalcMissions()
+        {
+            Sky = Utils.GetArcNum(GuardianAngel + MainFromPast);
+            Land = Utils.GetArcNum(Personal + GiftAfter40);
+            FirstMission = Utils.GetArcNum(Sky + Land);
+            Woman = Utils.GetArcNum(Mother1stPoint + Mother2ndPoint);
+            Man = Utils.GetArcNum(Father1stPoint + Father2ndPoint);
+            SecondMission = Utils.GetArcNum(Man + Woman);
+            CommonMission = Utils.GetArcNum(FirstMission + SecondMission);
+        }
         #endregion Methods
     }
     public class YearsGridVM : ObservableClass
     {
         #region Data
         private MatrixVM _MainMatrix;
-        private ObservableCollection<AgeItem> _Years27 = new ObservableCollection<AgeItem>();
-        private ObservableCollection<AgeItem> _Years55 = new ObservableCollection<AgeItem>();
-        private ObservableCollection<AgeItem> _Years80 = new ObservableCollection<AgeItem>();
+        private List<AgeItem> _Years27 = new List<AgeItem>();
+        private ListCollectionView _Years27CV;
+        private List<AgeItem> _Years55 = new List<AgeItem>();
+        private ListCollectionView _Years55CV;
+        private List<AgeItem> _Years80 = new List<AgeItem>();
+        private ListCollectionView _Years80CV;
         #endregion Data
         #region Constructor
-        public YearsGridVM(MatrixVM mvm)
+        public YearsGridVM(MatrixVM mmvm)
         {
-            _MainMatrix = mvm;
+            _MainMatrix = mmvm;
+            _Years27CV = CollectionViewSource.GetDefaultView(_Years27) as ListCollectionView;
+            _Years55CV = CollectionViewSource.GetDefaultView(_Years55) as ListCollectionView;
+            _Years80CV = CollectionViewSource.GetDefaultView(_Years80) as ListCollectionView;
         }
         #endregion Constructor
         #region Properties
-        public ObservableCollection<AgeItem> Years27CV
+        public ICollectionView Years27CV
         {
-            get { return _Years27; }
+            get { return _Years27CV; }
             set
             {
-                _Years27 = value;
+                _Years27CV = value as ListCollectionView;
                 OnPropertyChanged("Years27CV");
             }
         }
-        public ObservableCollection<AgeItem> Years55CV
+        public ICollectionView Years55CV
         {
-            get { return _Years55; }
+            get { return _Years55CV; }
             set
             {
-                _Years55 = value;
+                _Years55CV = value as ListCollectionView;
                 OnPropertyChanged("Years55CV");
             }
         }
-        public ObservableCollection<AgeItem> Years80CV
+        public ICollectionView Years80CV
         {
-            get { return _Years80; }
+            get { return _Years80CV; }
             set
             {
-                _Years80 = value;
+                _Years80CV = value as ListCollectionView;
                 OnPropertyChanged("Years80CV");
             }
         }
@@ -248,38 +286,32 @@ namespace Arcan
         {
             List<AgeItem> tmp = AgeItem.GetEightAges(new AgeItem(0f, _MainMatrix.Personal), new AgeItem(10f, _MainMatrix.Father1stPoint));
             _Years27.Clear();
-            foreach (var it in tmp)
-                _Years27.Add(it);
+            _Years27.AddRange(tmp);
             tmp = AgeItem.GetEightAges(new AgeItem(10f, _MainMatrix.Father1stPoint), new AgeItem(20f, _MainMatrix.GuardianAngel));
-            foreach (var it in tmp)
-                _Years27.Add(it);
+            _Years27.AddRange(tmp);
             tmp = AgeItem.GetEightAges(new AgeItem(20f, _MainMatrix.GuardianAngel), new AgeItem(30f, _MainMatrix.Mother2ndPoint));
             for (int i = 0; i < 6; i++)
                 _Years27.Add(tmp[i]);
-            OnPropertyChanged("Years27CV");
+            Years27CV.Refresh();
             _Years55.Clear();
             _Years55.Add(tmp[6]);
             _Years55.Add(tmp[7]);
             tmp = AgeItem.GetEightAges(new AgeItem(30f, _MainMatrix.Mother2ndPoint), new AgeItem(40f, _MainMatrix.GiftAfter40));
-            foreach (AgeItem it in tmp)
-                _Years55.Add(it);
+            _Years55.AddRange(tmp);
             tmp = AgeItem.GetEightAges(new AgeItem(40f, _MainMatrix.GiftAfter40), new AgeItem(50f, _MainMatrix.Father2ndPoint));
-            foreach (AgeItem it in tmp)
-                _Years55.Add(it);
+            _Years55.AddRange(tmp);
             tmp = AgeItem.GetEightAges(new AgeItem(50f, _MainMatrix.Father2ndPoint), new AgeItem(60f, _MainMatrix.MainFromPast));
             for (int i = 0; i < 4; i++)
                 _Years55.Add(tmp[i]);
-            OnPropertyChanged("Years55CV");
+            Years55CV.Refresh();
             _Years80.Clear();
             for (int i = 4; i < 8; i++)
                 _Years80.Add(tmp[i]);
             tmp = AgeItem.GetEightAges(new AgeItem(60f, _MainMatrix.MainFromPast), new AgeItem(70f, _MainMatrix.Mother1stPoint));
-            foreach (AgeItem it in tmp)
-                _Years80.Add(it);
+            _Years80.AddRange(tmp);
             tmp = AgeItem.GetEightAges(new AgeItem(70f, _MainMatrix.Mother1stPoint), new AgeItem(80f, _MainMatrix.Personal));
-            foreach (AgeItem it in tmp)
-                _Years80.Add(it);
-            OnPropertyChanged("Years80CV");
+            _Years80.AddRange(tmp);
+            Years80CV.Refresh();
         }
         #endregion Init
     }

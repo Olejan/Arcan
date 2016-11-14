@@ -5,119 +5,122 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Arcan"
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="300">
+             d:DesignHeight="250" d:DesignWidth="250">
     <UserControl.Resources>
         <Style x:Key="tbs_LeftCenter">
             <Setter Property="FrameworkElement.HorizontalAlignment" Value="Left"></Setter>
             <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="tbs_LeftCenterValue">
+            <Setter Property="FrameworkElement.HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FrameworkElement.Margin" Value="5,0,5,0"></Setter>
         </Style>
         <Style x:Key="tbs_CenterCenter">
             <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"></Setter>
             <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"></Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
-        <Grid Margin="5">
+    <Grid Margin="5" Background="{Binding Path=BackgroundColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Path=MatrixName}"/>
+        <Grid HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="28"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="28"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="5"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="15"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="63"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="63"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="15"/>
-                    <ColumnDefinition Width="20"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="15"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="63"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="63"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="15"/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Ellipse Grid.Row="4" Grid.Column="0" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding Personal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Ellipse Grid.Row="2" Grid.Column="2" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding Father1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Ellipse Grid.Row="0" Grid.Column="4" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding GuardianAngel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Ellipse Grid.Row="2" Grid.Column="6" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="2" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding Mother2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Ellipse Grid.Row="4" Grid.Column="8" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="4" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding GiftAfter40, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Ellipse Grid.Row="6" Grid.Column="6" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="6" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding Father2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Ellipse Grid.Row="8" Grid.Column="4" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="8" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding MainFromPast, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Ellipse Grid.Row="6" Grid.Column="2" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding Mother1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <Ellipse Grid.Row="4" Grid.Column="4" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
-                <TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        		Text="{Binding ComfortPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-            </Grid>
-            <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="10"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Небо:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Земля:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       Text="{Binding Path=sky, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       Text="{Binding Path=land, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Text="}" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       FontSize="52" FontFamily="SimSun"/>
-                <TextBlock Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       Text="{Binding Path=firstmission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Grid.Row="0" Grid.Column="5" Text="Муж.р:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
-                <TextBlock Grid.Row="1" Grid.Column="5" Text="Жен.р:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
-                <TextBlock Grid.Row="0" Grid.Column="6" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       Text="{Binding Path=man, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Grid.Row="1" Grid.Column="6" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       Text="{Binding Path=woman, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Grid.Row="0" Grid.Column="7" Grid.RowSpan="2" Text="}" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       FontSize="52" FontFamily="SimSun"/>
-                <TextBlock Grid.Row="0" Grid.Column="8" Grid.RowSpan="2" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       Text="{Binding Path=secondmission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Grid.Row="0" Grid.Column="10" Grid.RowSpan="2" Text="Общее:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
-                <TextBlock Grid.Row="0" Grid.Column="11" Grid.RowSpan="2" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
-                       Text="{Binding Path=commonmission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            </Grid>
+            <Ellipse Grid.Row="4" Grid.Column="0" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding Personal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Ellipse Grid.Row="2" Grid.Column="2" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding Father1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Ellipse Grid.Row="0" Grid.Column="4" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding GuardianAngel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Ellipse Grid.Row="2" Grid.Column="6" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="2" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding Mother2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Ellipse Grid.Row="4" Grid.Column="8" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="4" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding GiftAfter40, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Ellipse Grid.Row="6" Grid.Column="6" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="6" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding Father2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Ellipse Grid.Row="8" Grid.Column="4" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="8" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding MainFromPast, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Ellipse Grid.Row="6" Grid.Column="2" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding Mother1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Ellipse Grid.Row="4" Grid.Column="4" Fill="Beige" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch"/>
+            <TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Text="{Binding ComfortPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        <Grid Grid.Row="2" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="7"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="7"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Н:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="З:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
+                       Text="{Binding Path=Sky, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
+                       Text="{Binding Path=Land, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Text="}" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
+                       FontSize="45" FontFamily="SimSun"/>
+            <TextBlock Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
+                       Text="{Binding Path=FirstMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="0" Grid.Column="5" Text="М:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
+            <TextBlock Grid.Row="1" Grid.Column="5" Text="Ж:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
+            <TextBlock Grid.Row="0" Grid.Column="6" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
+                       Text="{Binding Path=Man, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="1" Grid.Column="6" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
+                       Text="{Binding Path=Woman, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="0" Grid.Column="7" Grid.RowSpan="2" Text="}" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
+                       FontSize="45" FontFamily="SimSun"/>
+            <TextBlock Grid.Row="0" Grid.Column="8" Grid.RowSpan="2" Style="{StaticResource ResourceKey=tbs_LeftCenter}"
+                       Text="{Binding Path=SecondMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="0" Grid.Column="10" Grid.RowSpan="2" Text="О:" Style="{StaticResource ResourceKey=tbs_LeftCenter}"/>
+            <TextBlock Grid.Row="0" Grid.Column="11" Grid.RowSpan="2" Style="{StaticResource ResourceKey=tbs_CenterCenter}"
+                       Text="{Binding Path=CommonMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </UserControl>

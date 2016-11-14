@@ -27,10 +27,20 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Дата рождения:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,170,0"/>
-        <DatePicker HorizontalAlignment="Right" Margin="16,0,25,0" VerticalAlignment="Center" Width="130"
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker Grid.Column="0" Name="dt_SecondDT" HorizontalAlignment="Left" Margin="25,0,25,0" VerticalAlignment="Center" Width="130"
+                    SelectedDate="{Binding SecondBD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Column="1" Text="Дата рождения:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <DatePicker Grid.Column="2" HorizontalAlignment="Right" Margin="16,0,25,0" VerticalAlignment="Center" Width="130"
                     SelectedDate="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TabControl Grid.Row="1" x:Name="tabControl" HorizontalAlignment="Stretch"  Margin="3" VerticalAlignment="Stretch">
+        </Grid>
+        <TabControl Grid.Row="1" x:Name="tabControl" HorizontalAlignment="Stretch"  Margin="3" VerticalAlignment="Stretch"
+                    SelectionChanged="tabControl_SelectionChanged">
             <TabItem Header="Основной расчёт">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -261,8 +271,8 @@
                     <DataGrid Grid.Row="1" Name="m_dgChakras" ItemsSource="{Binding Path=MainMatrix_VM.ChakrasCV}" AutoGenerateColumns="False" IsReadOnly="True"
                               Sorting="CancelSorting" SelectionMode="Single">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Binding="{Binding Path=MainMatrix_VM.Name}" CanUserResize="False" CanUserReorder="False"/>
-                            <DataGridTextColumn Header="Физика/Земля" Binding="{Binding Path=MainMatrix_VM.Land}" CanUserResize="False" CanUserReorder="False">
+                            <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}" CanUserResize="False" CanUserReorder="False"/>
+                            <DataGridTextColumn Header="Физика/Земля" Binding="{Binding Path=Land}" CanUserResize="False" CanUserReorder="False">
                                 <DataGridTextColumn.CellStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextAlignment" Value="Center"/>
@@ -270,7 +280,7 @@
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
                             <DataGridTextColumn Width="10" Binding="{Binding Plus}" CanUserResize="False" CanUserReorder="False"/>
-                            <DataGridTextColumn Header="Энергия/Небо" Binding="{Binding Path=MainMatrix_VM.Sky}" CanUserResize="False" CanUserReorder="False">
+                            <DataGridTextColumn Header="Энергия/Небо" Binding="{Binding Path=Sky}" CanUserResize="False" CanUserReorder="False">
                                 <DataGridTextColumn.CellStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextAlignment" Value="Center"/>
@@ -278,7 +288,7 @@
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
                             <DataGridTextColumn Width="10" Binding="{Binding Equal}" CanUserResize="False" CanUserReorder="False"/>
-                            <DataGridTextColumn Header="Итог" Binding="{Binding Path=MainMatrix_VM.Total}" CanUserResize="False" CanUserReorder="False">
+                            <DataGridTextColumn Header="Итог" Binding="{Binding Path=Total}" CanUserResize="False" CanUserReorder="False">
                                 <DataGridTextColumn.CellStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextAlignment" Value="Center"/>
@@ -343,7 +353,19 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Совместимость">
-                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:MatrixUC Grid.Row="0" Grid.Column="0" DataContext="{Binding SecondMatrix_VM}"/>
+                    <local:MatrixUC Grid.Row="0" Grid.Column="1" DataContext="{Binding MainMatrix_VM}"/>
+                    <local:MatrixUC Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" DataContext="{Binding CommonMatrix_VM}"/>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
