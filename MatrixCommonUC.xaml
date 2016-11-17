@@ -28,9 +28,61 @@
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="170"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+        <TextBlock x:Name="textBlock_Copy25" HorizontalAlignment="Left" Margin="116,83,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
+                           Text="$" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="YellowGreen">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock x:Name="textBlock_Copy26" HorizontalAlignment="Left" Margin="92,107,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
+                           Text="&#x2764;" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="Red">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Grid Height="15" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,128,0,0">
+            <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Margin="2,1"
+                       Text="{Binding Path=PastLife2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid Height="15" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="78,118,0,0">
+            <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Margin="2,1"
+                       Text="{Binding Path=PastLife1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid Height="15" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="99,116,0,0">
+            <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Margin="2,1"
+                       Text="{Binding Path=Love2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        <Grid Height="15" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="101,95,0,0">
+            <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Margin="2,1"
+                       Text="{Binding Path=Money1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        <Grid Height="15" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="122,92,0,0">
+            <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Margin="2,1"
+                       Text="{Binding Path=Money2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        <Grid Height="15" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="124,71,0,0">
+            <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Margin="2,1"
+                       Text="{Binding Path=MoneyEnter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
         <Grid HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
@@ -87,7 +139,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="{Binding Path=MatrixName}"/>
+
             <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="15,5,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
@@ -132,5 +184,6 @@
                            Text="{Binding Path=CommonMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </Grid>
+
     </Grid>
 </UserControl>

@@ -189,13 +189,6 @@ namespace Arcan
             Father1stPoint = Utils.GetArcNum(Personal + GuardianAngel);
             Mother2ndPoint = Utils.GetArcNum(GuardianAngel + GiftAfter40);
             Father2ndPoint = Utils.GetArcNum(MainFromPast + GiftAfter40);
-            Mother1stPoint = Utils.GetArcNum(Personal + MainFromPast);
-            PastLife1stPoint = Utils.GetArcNum(ComfortPoint + MainFromPast);
-            PastLife2ndPoint = Utils.GetArcNum(PastLife1stPoint + MainFromPast);
-            MoneyEnter = Utils.GetArcNum(ComfortPoint + GiftAfter40);
-            Money1stPoint = Utils.GetArcNum(PastLife1stPoint + MoneyEnter);
-            Love2ndPoint = Utils.GetArcNum(PastLife1stPoint + Money1stPoint);
-            Money2ndPoint = Utils.GetArcNum(Money1stPoint + MoneyEnter);
             CalcMissions();
             Vishudha = Utils.GetArcNum(GuardianAngel + ComfortPoint);
             Adjna = Utils.GetArcNum(GuardianAngel + Vishudha);
@@ -222,6 +215,13 @@ namespace Arcan
         }
         public void CalcMissions()
         {
+            Mother1stPoint = Utils.GetArcNum(Personal + MainFromPast);
+            PastLife1stPoint = Utils.GetArcNum(ComfortPoint + MainFromPast);
+            PastLife2ndPoint = Utils.GetArcNum(PastLife1stPoint + MainFromPast);
+            MoneyEnter = Utils.GetArcNum(ComfortPoint + GiftAfter40);
+            Money1stPoint = Utils.GetArcNum(PastLife1stPoint + MoneyEnter);
+            Love2ndPoint = Utils.GetArcNum(PastLife1stPoint + Money1stPoint);
+            Money2ndPoint = Utils.GetArcNum(Money1stPoint + MoneyEnter);
             Sky = Utils.GetArcNum(GuardianAngel + MainFromPast);
             Land = Utils.GetArcNum(Personal + GiftAfter40);
             FirstMission = Utils.GetArcNum(Sky + Land);

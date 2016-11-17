@@ -235,7 +235,7 @@
                     <TextBlock x:Name="textBlock_Copy24" TextWrapping="Wrap" FontSize="8"
                            Text="Прошлые жизни" VerticalAlignment="Top" Width="58" Margin="187,251,262,0"/>
                     <TextBlock x:Name="textBlock_Copy25" HorizontalAlignment="Left" Margin="319,168,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
-                           Text="$" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                           Text="$" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="YellowGreen">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -246,7 +246,7 @@
                         </TextBlock.RenderTransform>
                     </TextBlock>
                     <TextBlock x:Name="textBlock_Copy26" HorizontalAlignment="Left" Margin="273,212,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
-                           Text="&#x2764;" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                           Text="&#x2764;" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="Red">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
