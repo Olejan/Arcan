@@ -72,7 +72,7 @@ namespace Arcan
         }
         public MatrixVM(DateTime date, string matrixname, Brush background)
         {
-            _sMatrixName = matrixname;
+            //_sMatrixName = matrixname;
             BackgroundColor = background;
             Personal = 1; GuardianAngel = 2; GiftAfter40 = 3; MainFromPast = 4; Father1stPoint = 5; Mother2ndPoint = 6; Father2ndPoint = 7; Mother1stPoint = 8;
             ComfortPoint = 9; PastLife1stPoint = 10; Money1stPoint = 11; MoneyEnter = 12; Love2ndPoint = 13; Money2ndPoint = 14; PastLife2ndPoint = 15;
@@ -180,7 +180,7 @@ namespace Arcan
         public void Init()
         {
             if (Birthday == null) return;
-            MatrixName = _Birthday.ToShortDateString();
+            //MatrixName = _Birthday.ToShortDateString();
             Personal = Utils.GetArcNum(Birthday.Day);
             GuardianAngel = Birthday.Month;
             GiftAfter40 = Utils.GetArcNum(Birthday.Year); // !!!!!!!!!!

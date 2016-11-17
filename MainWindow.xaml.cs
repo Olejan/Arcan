@@ -263,6 +263,9 @@ namespace Arcan
         private MatrixVM _SecondMatrix_VM;
         private MatrixVM _CommonMatrix_VM;
         private YearsGridVM _YearsGrid_VM;
+        private string _FirstMatrixName;
+        private string _SecondMatrixName;
+        private string _CommonMatrixName;
         //private DelegateCommand _CmdTabItemChanged;
         #endregion Data
         #region Constructor
@@ -278,6 +281,33 @@ namespace Arcan
         }
         #endregion Constructor
         #region Properties
+        public string FirstMatrixName
+        {
+            get { return _FirstMatrixName; }
+            set
+            {
+                _FirstMatrixName = value;
+                OnPropertyChanged("FirstMatrixName");
+            }
+        }
+        public string SecondMatrixName
+        {
+            get { return _SecondMatrixName; }
+            set
+            {
+                _SecondMatrixName = value;
+                OnPropertyChanged("SecondMatrixName");
+            }
+        }
+        public string CommonMatrixName
+        {
+            get { return _CommonMatrixName; }
+            set
+            {
+                _CommonMatrixName = value;
+                OnPropertyChanged("CommonMatrixName");
+            }
+        }
         /*public ICommand CmdTabItemChanged
         {
             get { return _CmdTabItemChanged ?? (_CmdTabItemChanged = new DelegateCommand(CmdTabItemChanged_Executed)); }
@@ -352,6 +382,7 @@ namespace Arcan
         {
             if (Birthday == null) return;
             _MainMatrix_VM.Birthday = Birthday;
+            FirstMatrixName = _Birthday.ToShortDateString();
             _MainMatrix_VM.Init();
             _YearsGrid_VM.Init();
             OnPropertyChanged("MainMatrix_VM");
@@ -362,8 +393,10 @@ namespace Arcan
         {
             if (_SecondMatrix_VM == null) return;
             _SecondMatrix_VM.Birthday = SecondBD;
+            SecondMatrixName = _SecondBD.ToShortDateString();
             _SecondMatrix_VM.Init();
-            _CommonMatrix_VM.MatrixName = SecondMatrix_VM.MatrixName + " + " + MainMatrix_VM.MatrixName;
+            //_CommonMatrix_VM.MatrixName = SecondMatrix_VM.MatrixName + " + " + MainMatrix_VM.MatrixName;
+            CommonMatrixName = SecondMatrixName + " + " + FirstMatrixName;
             _CommonMatrix_VM.Personal = Utils.GetArcNum(_MainMatrix_VM.Personal + _SecondMatrix_VM.Personal);
             _CommonMatrix_VM.GuardianAngel = Utils.GetArcNum(_MainMatrix_VM.GuardianAngel + _SecondMatrix_VM.GuardianAngel);
             _CommonMatrix_VM.GiftAfter40 = Utils.GetArcNum(_MainMatrix_VM.GiftAfter40 + _SecondMatrix_VM.GiftAfter40);

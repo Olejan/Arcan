@@ -355,16 +355,23 @@
             <TabItem Header="Совместимость">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="8*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <local:MatrixUC Grid.Row="0" Grid.Column="0" DataContext="{Binding SecondMatrix_VM}"/>
-                    <local:MatrixUC Grid.Row="0" Grid.Column="1" DataContext="{Binding MainMatrix_VM}"/>
-                    <local:MatrixUC Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" DataContext="{Binding CommonMatrix_VM}"/>
+                    <GroupBox Grid.Row="0" Grid.Column="0" Header="{Binding Path=SecondMatrixName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <local:MatrixUC DataContext="{Binding SecondMatrix_VM}"/>
+                    </GroupBox>
+                    <GroupBox Grid.Row="0" Grid.Column="1" Header="{Binding Path=FirstMatrixName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <local:MatrixUC DataContext="{Binding MainMatrix_VM}"/>
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Grid.ColumnSpan="2" Header="{Binding Path=CommonMatrixName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <local:MatrixCommonUC HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                          DataContext="{Binding CommonMatrix_VM}"/>
+                    </GroupBox>
                 </Grid>
             </TabItem>
         </TabControl>
