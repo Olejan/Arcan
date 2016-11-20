@@ -47,7 +47,7 @@
                         <RowDefinition Height="430"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="184" Margin="167,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="184"/>
+                    <Rectangle Fill="Transparent" HorizontalAlignment="Left" Height="184" Margin="167,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="184"/>
                     <Rectangle HorizontalAlignment="Left" Height="184" Margin="167,65,0,0" Stroke="Black" VerticalAlignment="Top" Width="184" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <TransformGroup>
@@ -108,98 +108,142 @@
                             </TransformGroup>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="128,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="165,64,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,26,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="385,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="257,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="257,247,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="348,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="302,201,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="281,222,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="326,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="347,247,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="165,247,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="347,64,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="115,152,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.Personal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="253,10,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.GuardianAngel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="395,150,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.GiftAfter40, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="253,293,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.MainFromPast, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="155,45,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.Father1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="355,48,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.Mother2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="355,250,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.Father2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy6" HorizontalAlignment="Left" Margin="155,250,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.Mother1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy7" HorizontalAlignment="Left" Margin="261,130,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.ComfortPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy8" HorizontalAlignment="Left" Margin="245,230,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.PastLife1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy9" HorizontalAlignment="Left" Margin="297,183,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.Money1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy10" HorizontalAlignment="Left" Margin="335,139,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.MoneyEnter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy11" HorizontalAlignment="Left" Margin="286,222,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.Love2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy12" HorizontalAlignment="Left" Margin="331,178,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.Money2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy11" HorizontalAlignment="Left" Margin="215,263,0,0" TextWrapping="Wrap"
-                           Text="{Binding Path=MainMatrix_VM.PastLife2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="16,332,0,0" TextWrapping="Wrap"
+
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="117,146,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Personal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="248,15,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.GuardianAngel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="377,146,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.GiftAfter40, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="248,276,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.MainFromPast, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="156,55,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Father1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="339,55,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Mother2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="339,238,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Father2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="156,238,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Mother1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="23" Width="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="247,146,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.ComfortPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,241,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.PastLife1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="296,195,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Money1stPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,149,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.MoneyEnter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="274,217,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Love2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="319,172,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Money2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,262,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.PastLife2ndPoint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="16,332,0,0" TextWrapping="Wrap"
                            Text="Небо" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="16,361,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="16,361,0,0" TextWrapping="Wrap"
                            Text="Земля" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" Margin="83,332,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="83,332,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=MainMatrix_VM.Sky, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left" Margin="83,361,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="83,361,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=MainMatrix_VM.Land, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy3" HorizontalAlignment="Left" Margin="328,332,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="328,332,0,0" TextWrapping="Wrap"
                            Text="Муж.р." VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy4" HorizontalAlignment="Left" Margin="328,361,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="328,361,0,0" TextWrapping="Wrap"
                            Text="Жен.р." VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy5" HorizontalAlignment="Left" Margin="395,332,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="395,332,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=MainMatrix_VM.Man, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy6" HorizontalAlignment="Left" Margin="395,361,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="395,361,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=MainMatrix_VM.Woman, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy7" HorizontalAlignment="Left" Margin="202,394,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="202,394,0,0" TextWrapping="Wrap"
                            Text="Общее" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy8" HorizontalAlignment="Left" Margin="269,394,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="269,394,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=MainMatrix_VM.CommonMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy9" HorizontalAlignment="Left" Margin="133,347,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="133,347,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=MainMatrix_VM.FirstMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock1_Copy10" HorizontalAlignment="Left" Margin="441,347,0,0" TextWrapping="Wrap"
+                    <TextBlock HorizontalAlignment="Left" Margin="441,347,0,0" TextWrapping="Wrap"
                            Text="{Binding Path=MainMatrix_VM.SecondMission, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <Label x:Name="label" Content="}" HorizontalAlignment="Left" Margin="101,321,0,0" VerticalAlignment="Top" FontSize="52" FontFamily="SimSun"/>
-                    <Label x:Name="label_Copy" Content="}" HorizontalAlignment="Left" Margin="410,321,0,0" VerticalAlignment="Top" FontSize="52" FontFamily="SimSun"/>
-                    <Label x:Name="label_Copy1" Content="{}{" HorizontalAlignment="Left" Margin="218,234,0,0" VerticalAlignment="Top" FontSize="55" FontFamily="SimSun"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="148,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="165,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,64,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="256,107,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="210,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-                    <TextBlock x:Name="textBlock_Copy14" HorizontalAlignment="Left" Margin="147,142,0,0" TextWrapping="Wrap"
-                           Text="{Binding MainMatrix_VM.HelthAdjna, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy15" HorizontalAlignment="Left" Margin="169,142,0,0" TextWrapping="Wrap"
-                           Text="{Binding MainMatrix_VM.HelthVishudha, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy16" HorizontalAlignment="Left" Margin="209,142,0,0" TextWrapping="Wrap"
-                           Text="{Binding MainMatrix_VM.HelthAnahata, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy17" HorizontalAlignment="Left" Margin="261,100,0,0" TextWrapping="Wrap"
-                           Text="{Binding MainMatrix_VM.Anahata, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy18" HorizontalAlignment="Left" Margin="261,66,0,0" TextWrapping="Wrap"
-                           Text="{Binding MainMatrix_VM.Vishudha, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy19" HorizontalAlignment="Left" Margin="261,43,0,0" TextWrapping="Wrap"
-                           Text="{Binding MainMatrix_VM.Adjna, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy20" HorizontalAlignment="Left" Margin="194,159,0,0" TextWrapping="Wrap" FontSize="10"
+                    <Label Content="}" HorizontalAlignment="Left" Margin="101,321,0,0" VerticalAlignment="Top" FontSize="52" FontFamily="SimSun"/>
+                    <Label Content="}" HorizontalAlignment="Left" Margin="410,321,0,0" VerticalAlignment="Top" FontSize="52" FontFamily="SimSun"/>
+                    <Label Content="{}{" HorizontalAlignment="Left" Margin="221,234,0,0" VerticalAlignment="Top" FontSize="55" FontFamily="SimSun"/>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="141,149,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.HelthAdjna, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="159,149,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.HelthVishudha, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,149,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.HelthAnahata, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,101,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Anahata, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,58,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Vishudha, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Height="17" Width="17" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="251,40,0,0">
+                        <Ellipse Fill="Beige" Stroke="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   Text="{Binding Path=MainMatrix_VM.Adjna, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="176,157,0,0" TextWrapping="Wrap" FontSize="10"
                            Text="Земля" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock_Copy21" HorizontalAlignment="Left" Margin="239,99,0,0" TextWrapping="Wrap" FontSize="10"
+                    <TextBlock HorizontalAlignment="Left" Margin="239,82,0,0" TextWrapping="Wrap" FontSize="10"
                            Text="Небо" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -210,7 +254,7 @@
                             </TransformGroup>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-                    <TextBlock x:Name="textBlock_Copy22" HorizontalAlignment="Left" Margin="193,108,0,0" TextWrapping="Wrap" FontSize="10"
+                    <TextBlock HorizontalAlignment="Left" Margin="193,108,0,0" TextWrapping="Wrap" FontSize="10"
                            Text="Мужской род" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -221,7 +265,7 @@
                             </TransformGroup>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-                    <TextBlock x:Name="textBlock_Copy23" HorizontalAlignment="Left" Margin="266,105,0,0" TextWrapping="Wrap" FontSize="10"
+                    <TextBlock HorizontalAlignment="Left" Margin="266,105,0,0" TextWrapping="Wrap" FontSize="10"
                            Text="Женский род" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -232,10 +276,8 @@
                             </TransformGroup>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-                    <TextBlock x:Name="textBlock_Copy24" TextWrapping="Wrap" FontSize="8"
-                           Text="Прошлые жизни" VerticalAlignment="Top" Width="58" Margin="187,251,262,0"/>
-                    <TextBlock x:Name="textBlock_Copy25" HorizontalAlignment="Left" Margin="319,168,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
-                           Text="$" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="YellowGreen">
+                    <TextBlock HorizontalAlignment="Left" Margin="314,164,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
+                           Text="$" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="Green">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -245,7 +287,7 @@
                             </TransformGroup>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-                    <TextBlock x:Name="textBlock_Copy26" HorizontalAlignment="Left" Margin="273,212,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
+                    <TextBlock HorizontalAlignment="Left" Margin="268,209,0,0" TextWrapping="Wrap" FontSize="10" FontWeight="Bold"
                            Text="&#x2764;" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="Red">
                         <TextBlock.RenderTransform>
                             <TransformGroup>
@@ -256,8 +298,6 @@
                             </TransformGroup>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-
-
                 </Grid>
             </TabItem>
             <TabItem Header="Карта здоровья">
