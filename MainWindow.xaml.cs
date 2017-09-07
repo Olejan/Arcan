@@ -149,7 +149,9 @@ namespace Arcan
                 StringBuilder sb = new StringBuilder();
                 sb.Append(fullyears);
                 int i = fullyears % 10;
-                if (months != 500)
+                if (fullyears == 11 || fullyears == 13)
+                    sb.Append(" лет");
+                else if (months != 500)
                 {
                     switch (i)
                     {
